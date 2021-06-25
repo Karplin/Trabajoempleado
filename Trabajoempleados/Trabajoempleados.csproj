@@ -164,6 +164,9 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\ADMINISTRADORESController.cs" />
     <Compile Include="Controllers\BCANDIDATOSController.cs" />
+    <Compile Include="Controllers\CANDIDATOSController.cs" />
+    <Compile Include="Controllers\CONTRATISTASController.cs" />
+    <Compile Include="Controllers\EMPLEOSController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
