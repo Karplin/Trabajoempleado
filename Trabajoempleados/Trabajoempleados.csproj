@@ -163,6 +163,12 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\ADMINISTRADORESController.cs" />
+    <Compile Include="Controllers\BCANDIDATOS1Controller.cs" />
+    <Compile Include="Controllers\BCONTRATISTAS1Controller.cs" />
+    <Compile Include="Controllers\BEMPLEOS1Controller.cs" />
+    <Compile Include="Controllers\CANDIDATOSController.cs" />
+    <Compile Include="Controllers\CONTRATISTASController.cs" />
+    <Compile Include="Controllers\EMPLEOSController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -264,6 +270,21 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\BCANDIDATOS1\Create.cshtml" />
+    <Content Include="Views\BCANDIDATOS1\Delete.cshtml" />
+    <Content Include="Views\BCANDIDATOS1\Details.cshtml" />
+    <Content Include="Views\BCANDIDATOS1\Edit.cshtml" />
+    <Content Include="Views\BCANDIDATOS1\Index.cshtml" />
+    <Content Include="Views\BCONTRATISTAS1\Create.cshtml" />
+    <Content Include="Views\BCONTRATISTAS1\Delete.cshtml" />
+    <Content Include="Views\BCONTRATISTAS1\Details.cshtml" />
+    <Content Include="Views\BCONTRATISTAS1\Edit.cshtml" />
+    <Content Include="Views\BCONTRATISTAS1\Index.cshtml" />
+    <Content Include="Views\BEMPLEOS1\Create.cshtml" />
+    <Content Include="Views\BEMPLEOS1\Delete.cshtml" />
+    <Content Include="Views\BEMPLEOS1\Details.cshtml" />
+    <Content Include="Views\BEMPLEOS1\Edit.cshtml" />
+    <Content Include="Views\BEMPLEOS1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
