@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="bolsaempleosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ADMINISTRADORES">
+          <Key>
+            <PropertyRef Name="IdAdmin" />
+          </Key>
+          <Property Name="IdAdmin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cedula" Type="varchar" MaxLength="30" />
+          <Property Name="Nombre" Type="varchar" MaxLength="30" />
+          <Property Name="Apellido" Type="varchar" MaxLength="30" />
+          <Property Name="Correo" Type="varchar" MaxLength="30" />
+          <Property Name="Contrasena" Type="varchar" MaxLength="30" />
+          <Property Name="fechanacimiento" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="CANDIDATOS">
+          <Key>
+            <PropertyRef Name="IdCandidato" />
+          </Key>
+          <Property Name="IdCandidato" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cedula" Type="varchar" MaxLength="30" />
+          <Property Name="Nombre" Type="varchar" MaxLength="30" />
+          <Property Name="Apellido" Type="varchar" MaxLength="30" />
+          <Property Name="Correo" Type="varchar" MaxLength="30" />
+          <Property Name="Telefono" Type="varchar" MaxLength="30" />
+          <Property Name="Contrasena" Type="varchar" MaxLength="30" />
+          <Property Name="fechanacimiento" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="CONTRATISTAS">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdContratista" Type="varchar" MaxLength="30" />
+          <Property Name="Rnc" Type="varchar" MaxLength="30" />
+          <Property Name="NombreEmpresa" Type="varchar" MaxLength="40" />
+          <Property Name="Representante" Type="varchar" MaxLength="40" />
+          <Property Name="Correo" Type="varchar" MaxLength="30" />
+          <Property Name="Telefono" Type="varchar" MaxLength="30" />
+          <Property Name="Contrasena" Type="varchar" MaxLength="30" />
+          <Property Name="Direccion" Type="varchar" MaxLength="30" />
+          <Property Name="Urlc" Type="varchar" MaxLength="250" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="EMPLEOS">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdEmpleo" Type="varchar" MaxLength="30" />
+          <Property Name="IdEmpresa" Type="varchar" MaxLength="30" />
+          <Property Name="Empresa" Type="varchar" MaxLength="30" />
+          <Property Name="Tipo" Type="varchar" MaxLength="30" />
+          <Property Name="Logo" Type="varchar" MaxLength="30" />
+          <Property Name="Posicion" Type="varchar" MaxLength="30" />
+          <Property Name="Ubicacion" Type="varchar" MaxLength="30" />
+          <Property Name="Categoria" Type="varchar" MaxLength="30" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="250" />
+          <Property Name="caplicar" Type="varchar" MaxLength="30" />
+          <Property Name="Email" Type="varchar" MaxLength="30" />
+          <Property Name="Fechapubli" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityContainer Name="bolsaempleosModelStoreContainer">
+          <EntitySet Name="ADMINISTRADORES" EntityType="Self.ADMINISTRADORES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CANDIDATOS" EntityType="Self.CANDIDATOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CONTRATISTAS" EntityType="Self.CONTRATISTAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EMPLEOS" EntityType="Self.EMPLEOS" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="bolsaempleosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ADMINISTRADORES">
+          <Key>
+            <PropertyRef Name="IdAdmin" />
+          </Key>
+          <Property Name="IdAdmin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cedula" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Contrasena" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fechanacimiento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CANDIDATOS">
+          <Key>
+            <PropertyRef Name="IdCandidato" />
+          </Key>
+          <Property Name="IdCandidato" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cedula" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Apellido" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Contrasena" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fechanacimiento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CONTRATISTAS">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdContratista" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Rnc" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="NombreEmpresa" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Representante" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="Correo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Telefono" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Contrasena" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Urlc" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="EMPLEOS">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdEmpleo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="IdEmpresa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Empresa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Tipo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Logo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Posicion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Ubicacion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Categoria" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="caplicar" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Fechapubli" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="bolsaempleosEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ADMINISTRADORES" EntityType="Self.ADMINISTRADORES" />
+          <EntitySet Name="CANDIDATOS" EntityType="Self.CANDIDATOS" />
+          <EntitySet Name="CONTRATISTAS" EntityType="Self.CONTRATISTAS" />
+          <EntitySet Name="EMPLEOS" EntityType="Self.EMPLEOS" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="bolsaempleosModelStoreContainer" CdmEntityContainer="bolsaempleosEntities">
+          <EntitySetMapping Name="ADMINISTRADORES">
+            <EntityTypeMapping TypeName="bolsaempleosModel.ADMINISTRADORES">
+              <MappingFragment StoreEntitySet="ADMINISTRADORES">
+                <ScalarProperty Name="IdAdmin" ColumnName="IdAdmin" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+                <ScalarProperty Name="fechanacimiento" ColumnName="fechanacimiento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CANDIDATOS">
+            <EntityTypeMapping TypeName="bolsaempleosModel.CANDIDATOS">
+              <MappingFragment StoreEntitySet="CANDIDATOS">
+                <ScalarProperty Name="IdCandidato" ColumnName="IdCandidato" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+                <ScalarProperty Name="fechanacimiento" ColumnName="fechanacimiento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CONTRATISTAS">
+            <EntityTypeMapping TypeName="bolsaempleosModel.CONTRATISTAS">
+              <MappingFragment StoreEntitySet="CONTRATISTAS">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdContratista" ColumnName="IdContratista" />
+                <ScalarProperty Name="Rnc" ColumnName="Rnc" />
+                <ScalarProperty Name="NombreEmpresa" ColumnName="NombreEmpresa" />
+                <ScalarProperty Name="Representante" ColumnName="Representante" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Urlc" ColumnName="Urlc" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLEOS">
+            <EntityTypeMapping TypeName="bolsaempleosModel.EMPLEOS">
+              <MappingFragment StoreEntitySet="EMPLEOS">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdEmpleo" ColumnName="IdEmpleo" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+                <ScalarProperty Name="Posicion" ColumnName="Posicion" />
+                <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="caplicar" ColumnName="caplicar" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Fechapubli" ColumnName="Fechapubli" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
