@@ -163,8 +163,15 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\ADMINISTRADORESController.cs" />
+<<<<<<< HEAD
     <Compile Include="Controllers\BCONTRATISTASController.cs" />
     <Compile Include="Controllers\BEMPLEOSController.cs" />
+=======
+    <Compile Include="Controllers\BCANDIDATOSController.cs" />
+    <Compile Include="Controllers\CANDIDATOSController.cs" />
+    <Compile Include="Controllers\CONTRATISTASController.cs" />
+    <Compile Include="Controllers\EMPLEOSController.cs" />
+>>>>>>> master
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -266,6 +273,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\BCONTRATISTAS\Create.cshtml" />
     <Content Include="Views\BCONTRATISTAS\Delete.cshtml" />
     <Content Include="Views\BCONTRATISTAS\Details.cshtml" />
@@ -276,6 +284,13 @@
     <Content Include="Views\BEMPLEOS\Details.cshtml" />
     <Content Include="Views\BEMPLEOS\Edit.cshtml" />
     <Content Include="Views\BEMPLEOS\Index.cshtml" />
+=======
+    <Content Include="Views\BCANDIDATOS\Create.cshtml" />
+    <Content Include="Views\BCANDIDATOS\Delete.cshtml" />
+    <Content Include="Views\BCANDIDATOS\Details.cshtml" />
+    <Content Include="Views\BCANDIDATOS\Edit.cshtml" />
+    <Content Include="Views\BCANDIDATOS\Index.cshtml" />
+>>>>>>> master
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
