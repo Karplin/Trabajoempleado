@@ -65,7 +65,8 @@
             @Html.DisplayFor(modelItem => item.Tipo)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Logo)
+            <img width="100" src="@Url.Action("getImage","BEMPLEOS1", new {item.Logo })" />
+            @*@Html.DisplayFor(modelItem => item.Logo)*@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Posicion)

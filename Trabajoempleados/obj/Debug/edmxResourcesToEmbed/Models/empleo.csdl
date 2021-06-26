@@ -41,6 +41,12 @@
     <Property Name="Urlc" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
   </EntityType>
+  <EntityContainer Name="bolsaempleosEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ADMINISTRADORES" EntityType="Self.ADMINISTRADORES" />
+    <EntitySet Name="CANDIDATOS" EntityType="Self.CANDIDATOS" />
+    <EntitySet Name="CONTRATISTAS" EntityType="Self.CONTRATISTAS" />
+    <EntitySet Name="EMPLEOS" EntityType="bolsaempleosModel.EMPLEOS" />
+  </EntityContainer>
   <EntityType Name="EMPLEOS">
     <Key>
       <PropertyRef Name="Id" />
@@ -50,7 +56,7 @@
     <Property Name="IdEmpresa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="Empresa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="Tipo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="Logo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Logo" Type="Binary" MaxLength="Max" FixedLength="false" />
     <Property Name="Posicion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="Ubicacion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="Categoria" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
@@ -59,10 +65,4 @@
     <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="Fechapubli" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityContainer Name="bolsaempleosEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="ADMINISTRADORES" EntityType="Self.ADMINISTRADORES" />
-    <EntitySet Name="CANDIDATOS" EntityType="Self.CANDIDATOS" />
-    <EntitySet Name="CONTRATISTAS" EntityType="Self.CONTRATISTAS" />
-    <EntitySet Name="EMPLEOS" EntityType="Self.EMPLEOS" />
-  </EntityContainer>
 </Schema>

@@ -7,6 +7,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Trabajoempleados.Models;
+using System.IO;
+using System.ComponentModel.DataAnnotations;
+using System.Web.Helpers;
+using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace Trabajoempleados.Controllers
 {
@@ -48,6 +53,13 @@ namespace Trabajoempleados.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,IdEmpleo,IdEmpresa,Empresa,Tipo,Logo,Posicion,Ubicacion,Categoria,Descripcion,caplicar,Email,Fechapubli")] EMPLEOS eMPLEOS)
         {
+
+            HttpPostedFileBase FileBase = Request.Files[0];
+
+            WebImage image = new WebImage(FileBase.InputStream);
+
+            eMPLEOS.Logo = image.GetBytes();
+
             if (ModelState.IsValid)
             {
                 db.EMPLEOS.Add(eMPLEOS);
@@ -80,6 +92,21 @@ namespace Trabajoempleados.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,IdEmpleo,IdEmpresa,Empresa,Tipo,Logo,Posicion,Ubicacion,Categoria,Descripcion,caplicar,Email,Fechapubli")] EMPLEOS eMPLEOS)
         {
+            byte[] imagenactual = null;
+
+            HttpPostedFileBase FileBase = Request.Files[0];
+            if (FileBase == null)
+            {
+                imagenactual = db.EMPLEOS.SingleOrDefault(t=>t.Id == eMPLEOS.Id).Logo;
+            }
+            else
+            {
+                WebImage image = new WebImage(FileBase.InputStream);
+
+                eMPLEOS.Logo = image.GetBytes();
+
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(eMPLEOS).State = EntityState.Modified;
@@ -92,6 +119,8 @@ namespace Trabajoempleados.Controllers
         // GET: BEMPLEOS1/Delete/5
         public ActionResult Delete(int? id)
         {
+
+
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -123,5 +152,25 @@ namespace Trabajoempleados.Controllers
             }
             base.Dispose(disposing);
         }
+
+      
+
+        public ActionResult getImage(int id)
+        {
+            EMPLEOS eMPLEOS = db.EMPLEOS.Find(id);
+            byte[] byteImage = eMPLEOS.Logo;
+
+            MemoryStream memoryStream = new MemoryStream(byteImage);
+            Image image = Image.FromStream(memoryStream);
+
+            memoryStream = new MemoryStream();
+            image.Save(memoryStream, ImageFormat.Jpeg);
+            memoryStream.Position = 0;
+
+            return File(memoryStream, "image/jpg");
+            
+        }
+
+
     }
 }

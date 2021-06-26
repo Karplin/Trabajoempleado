@@ -48,19 +48,19 @@
     <EntitySetMapping Name="EMPLEOS">
       <EntityTypeMapping TypeName="bolsaempleosModel.EMPLEOS">
         <MappingFragment StoreEntitySet="EMPLEOS">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IdEmpleo" ColumnName="IdEmpleo" />
-          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
-          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-          <ScalarProperty Name="Logo" ColumnName="Logo" />
-          <ScalarProperty Name="Posicion" ColumnName="Posicion" />
-          <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
-          <ScalarProperty Name="Categoria" ColumnName="Categoria" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-          <ScalarProperty Name="caplicar" ColumnName="caplicar" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Fechapubli" ColumnName="Fechapubli" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="caplicar" ColumnName="caplicar" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+          <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+          <ScalarProperty Name="Posicion" ColumnName="Posicion" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="IdEmpleo" ColumnName="IdEmpleo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

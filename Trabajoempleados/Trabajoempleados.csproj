@@ -163,6 +163,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\ADMINISTRADORESController.cs" />
+    <Compile Include="Controllers\BADMINISTRADORES1Controller.cs" />
     <Compile Include="Controllers\BCANDIDATOS1Controller.cs" />
     <Compile Include="Controllers\BCONTRATISTAS1Controller.cs" />
     <Compile Include="Controllers\BEMPLEOS1Controller.cs" />
@@ -170,6 +171,7 @@
     <Compile Include="Controllers\CONTRATISTASController.cs" />
     <Compile Include="Controllers\EMPLEOSController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -285,6 +287,12 @@
     <Content Include="Views\BEMPLEOS1\Details.cshtml" />
     <Content Include="Views\BEMPLEOS1\Edit.cshtml" />
     <Content Include="Views\BEMPLEOS1\Index.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\BADMINISTRADORES1\Create.cshtml" />
+    <Content Include="Views\BADMINISTRADORES1\Delete.cshtml" />
+    <Content Include="Views\BADMINISTRADORES1\Details.cshtml" />
+    <Content Include="Views\BADMINISTRADORES1\Edit.cshtml" />
+    <Content Include="Views\BADMINISTRADORES1\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

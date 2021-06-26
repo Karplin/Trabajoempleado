@@ -19,7 +19,7 @@ namespace Trabajoempleados.Models
         public string IdEmpresa { get; set; }
         public string Empresa { get; set; }
         public string Tipo { get; set; }
-        public string Logo { get; set; }
+        public byte[] Logo { get; set; }
         public string Posicion { get; set; }
         public string Ubicacion { get; set; }
         public string Categoria { get; set; }

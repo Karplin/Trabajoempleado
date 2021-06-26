@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="bolsaempleosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="bolsaempleosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ADMINISTRADORES">
           <Key>
             <PropertyRef Name="IdAdmin" />
@@ -55,7 +55,7 @@
           <Property Name="IdEmpresa" Type="varchar" MaxLength="30" />
           <Property Name="Empresa" Type="varchar" MaxLength="30" />
           <Property Name="Tipo" Type="varchar" MaxLength="30" />
-          <Property Name="Logo" Type="varchar" MaxLength="30" />
+          <Property Name="Logo" Type="varbinary(max)" />
           <Property Name="Posicion" Type="varchar" MaxLength="30" />
           <Property Name="Ubicacion" Type="varchar" MaxLength="30" />
           <Property Name="Categoria" Type="varchar" MaxLength="30" />
@@ -70,8 +70,7 @@
           <EntitySet Name="CONTRATISTAS" EntityType="Self.CONTRATISTAS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EMPLEOS" EntityType="Self.EMPLEOS" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="bolsaempleosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -116,6 +115,12 @@
           <Property Name="Urlc" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityContainer Name="bolsaempleosEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ADMINISTRADORES" EntityType="Self.ADMINISTRADORES" />
+          <EntitySet Name="CANDIDATOS" EntityType="Self.CANDIDATOS" />
+          <EntitySet Name="CONTRATISTAS" EntityType="Self.CONTRATISTAS" />
+          <EntitySet Name="EMPLEOS" EntityType="bolsaempleosModel.EMPLEOS" />
+        </EntityContainer>
         <EntityType Name="EMPLEOS">
           <Key>
             <PropertyRef Name="Id" />
@@ -125,7 +130,7 @@
           <Property Name="IdEmpresa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Empresa" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Tipo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Logo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Logo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Posicion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Ubicacion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Categoria" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
@@ -134,12 +139,6 @@
           <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Fechapubli" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="bolsaempleosEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="ADMINISTRADORES" EntityType="Self.ADMINISTRADORES" />
-          <EntitySet Name="CANDIDATOS" EntityType="Self.CANDIDATOS" />
-          <EntitySet Name="CONTRATISTAS" EntityType="Self.CONTRATISTAS" />
-          <EntitySet Name="EMPLEOS" EntityType="Self.EMPLEOS" />
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -193,19 +192,19 @@
           <EntitySetMapping Name="EMPLEOS">
             <EntityTypeMapping TypeName="bolsaempleosModel.EMPLEOS">
               <MappingFragment StoreEntitySet="EMPLEOS">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="IdEmpleo" ColumnName="IdEmpleo" />
-                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-                <ScalarProperty Name="Empresa" ColumnName="Empresa" />
-                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-                <ScalarProperty Name="Logo" ColumnName="Logo" />
-                <ScalarProperty Name="Posicion" ColumnName="Posicion" />
-                <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
-                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="caplicar" ColumnName="caplicar" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Fechapubli" ColumnName="Fechapubli" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="caplicar" ColumnName="caplicar" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+                <ScalarProperty Name="Posicion" ColumnName="Posicion" />
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+                <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+                <ScalarProperty Name="IdEmpleo" ColumnName="IdEmpleo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

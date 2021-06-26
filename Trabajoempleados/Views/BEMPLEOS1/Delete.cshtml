@@ -48,7 +48,8 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Logo)
+            @*@Html.DisplayFor(model => model.Logo)*@
+            <img width="100" src="@Url.Action("getImage","BEMPLEOS1", new {id=Model.Id })" />
         </dd>
 
         <dt>

@@ -50,7 +50,7 @@
     <Property Name="IdEmpresa" Type="varchar" MaxLength="30" />
     <Property Name="Empresa" Type="varchar" MaxLength="30" />
     <Property Name="Tipo" Type="varchar" MaxLength="30" />
-    <Property Name="Logo" Type="varchar" MaxLength="30" />
+    <Property Name="Logo" Type="varbinary(max)" />
     <Property Name="Posicion" Type="varchar" MaxLength="30" />
     <Property Name="Ubicacion" Type="varchar" MaxLength="30" />
     <Property Name="Categoria" Type="varchar" MaxLength="30" />
