@@ -53,6 +53,12 @@ namespace Trabajoempleados.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,IdEmpleo,IdEmpresa,Empresa,Tipo,Logo,Posicion,Ubicacion,Categoria,Descripcion,caplicar,Email,Fechapubli")] EMPLEOS eMPLEOS)
         {
+            // Fecha
+            var anio = DateTime.Now;
+            var fecha = anio.ToShortDateString();
+
+            eMPLEOS.Fechapubli = Convert.ToString(fecha);
+            //-------------------------------------------------
 
             HttpPostedFileBase FileBase = Request.Files[0];
 
