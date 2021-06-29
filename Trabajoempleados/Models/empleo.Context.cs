@@ -41,5 +41,7 @@ namespace Trabajoempleados.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<busca_categoria_Result>("busca_categoria", nombreParameter);
         }
+
+        public System.Data.Entity.DbSet<Trabajoempleados.Models.busca_categoria_Result> busca_categoria_Result { get; set; }
     }
 }

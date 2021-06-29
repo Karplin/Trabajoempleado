@@ -75,6 +75,7 @@
     <FunctionImportMapping FunctionImportName="busca_categoria" FunctionName="bolsaempleosModel.Store.busca_categoria">
       <ResultMapping>
         <ComplexTypeMapping TypeName="bolsaempleosModel.busca_categoria_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Logo" ColumnName="Logo" />
           <ScalarProperty Name="Posicion" ColumnName="Posicion" />
           <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />

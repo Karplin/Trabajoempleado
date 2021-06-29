@@ -10,10 +10,10 @@
 namespace Trabajoempleados.Models
 {
     using System;
-    using System.Collections.Generic;
+    
     public partial class busca_categoria_Result
     {
-        
+        public int Id { get; set; }
         public byte[] Logo { get; set; }
         public string Posicion { get; set; }
         public string Ubicacion { get; set; }

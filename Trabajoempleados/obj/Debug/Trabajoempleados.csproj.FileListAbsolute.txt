@@ -264,3 +264,4 @@ D:\Leonal\Escritorio\Trabajo_Empleos\Trabajoempleados\obj\Debug\Trabajoempleados
 D:\Leonal\Escritorio\Trabajo_Empleos\Trabajoempleados\obj\Debug\Trabajoempleados.csproj.CopyComplete
 D:\Leonal\Escritorio\Trabajo_Empleos\Trabajoempleados\obj\Debug\Trabajoempleados.dll
 D:\Leonal\Escritorio\Trabajo_Empleos\Trabajoempleados\obj\Debug\Trabajoempleados.pdb
+D:\Leonal\Escritorio\Trabajo_Empleos\Trabajoempleados\obj\Debug\Trabajoempleados.csprojAssemblyReference.cache

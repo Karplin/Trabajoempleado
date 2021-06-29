@@ -77,6 +77,7 @@
     <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
   </EntityType>
   <ComplexType Name="busca_categoria_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
     <Property Type="Binary" Name="Logo" Nullable="true" />
     <Property Type="String" Name="Posicion" Nullable="true" MaxLength="30" />
     <Property Type="String" Name="Ubicacion" Nullable="true" MaxLength="30" />

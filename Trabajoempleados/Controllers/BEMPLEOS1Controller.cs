@@ -40,24 +40,13 @@ namespace Trabajoempleados.Controllers
         [HttpPost]
         public ActionResult Indexe(string nombre)
         {
-            ViewData["items"] = ListarCategoria();
-
-            return View(ola.Buscarcategoria(nombre));
+            return View(Buscarcategoria(nombre));
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+        public List<busca_categoria_Result> Buscarcategoria(string nombre)
+        {
+            return db.busca_categoria(nombre).ToList();
+        }
 
 
 

@@ -19,11 +19,11 @@ namespace Trabajoempleados
 
     public class filtros
     {
-        bolsaempleosEntities db = new bolsaempleosEntities();
-        public List<busca_categoria_Result> Buscarcategoria(string nombre)
-        {
-            return db.busca_categoria(nombre).ToList();
-        }
+        //bolsaempleosEntities db = new bolsaempleosEntities();
+        //public List<busca_categoria_Result> Buscarcategoria(string nombre)
+        //{
+        //    return db.busca_categoria(nombre).ToList();
+        //}
 
 
     }
