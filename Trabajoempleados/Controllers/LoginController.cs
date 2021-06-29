@@ -24,7 +24,7 @@ namespace Trabajoempleados.Controllers
             
             if (admin != null)
             {
-                return RedirectToAction("Index", "BEMPLEOS1", admin.IdAdmin);
+                return RedirectToAction("Ver", "BEMPLEOS1", admin.IdAdmin);
             }
 
             else
@@ -33,7 +33,7 @@ namespace Trabajoempleados.Controllers
 
                 if (candidato != null)
                 {
-                    return RedirectToAction("Index", "BEMPLEOS1", candidato.IdCandidato);
+                    return RedirectToAction("Ver", "BEMPLEOS1", candidato.IdCandidato);
                 }
                 else
                 {
@@ -41,7 +41,7 @@ namespace Trabajoempleados.Controllers
 
                     if (contratista != null)
                     {
-                        return RedirectToAction("Index", "BEMPLEOS1",  id = contratista.Id);
+                        return RedirectToAction("Ver", "BEMPLEOS1",  id = contratista.Id);
                     }
                     else
                     {

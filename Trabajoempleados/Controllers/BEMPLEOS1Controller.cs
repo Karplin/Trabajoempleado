@@ -24,7 +24,7 @@ namespace Trabajoempleados.Controllers
         private bolsaempleosEntities db = new bolsaempleosEntities();
 
         // GET: BEMPLEOS1
-        public ActionResult Index()
+        public ActionResult Ver()
         {
             ViewData["items"] = ListarCategoria();
 
@@ -211,7 +211,7 @@ namespace Trabajoempleados.Controllers
             {
                 db.EMPLEOS.Add(eMPLEOS);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Ver");
             }
 
             return View(eMPLEOS);
@@ -258,7 +258,7 @@ namespace Trabajoempleados.Controllers
             {
                 db.Entry(eMPLEOS).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Ver");
             }
             return View(eMPLEOS);
         }
@@ -288,7 +288,7 @@ namespace Trabajoempleados.Controllers
             EMPLEOS eMPLEOS = db.EMPLEOS.Find(id);
             db.EMPLEOS.Remove(eMPLEOS);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Ver");
         }
 
         protected override void Dispose(bool disposing)

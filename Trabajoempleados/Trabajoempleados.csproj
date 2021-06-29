@@ -294,7 +294,7 @@
     <Content Include="Views\BEMPLEOS1\Delete.cshtml" />
     <Content Include="Views\BEMPLEOS1\Details.cshtml" />
     <Content Include="Views\BEMPLEOS1\Edit.cshtml" />
-    <Content Include="Views\BEMPLEOS1\Index.cshtml" />
+    <Content Include="Views\BEMPLEOS1\Ver.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\BADMINISTRADORES1\Create.cshtml" />
     <Content Include="Views\BADMINISTRADORES1\Delete.cshtml" />
