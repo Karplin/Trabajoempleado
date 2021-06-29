@@ -47,6 +47,9 @@
     <EntitySet Name="CONTRATISTAS" EntityType="Self.CONTRATISTAS" />
     <EntitySet Name="EMPLEOS" EntityType="bolsaempleosModel.EMPLEOS" />
     <EntitySet Name="CATEGORIA" EntityType="bolsaempleosModel.CATEGORIA" />
+    <FunctionImport Name="busca_categoria" ReturnType="Collection(bolsaempleosModel.busca_categoria_Result)">
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="EMPLEOS">
     <Key>
@@ -73,4 +76,11 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
   </EntityType>
+  <ComplexType Name="busca_categoria_Result">
+    <Property Type="Binary" Name="Logo" Nullable="true" />
+    <Property Type="String" Name="Posicion" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Ubicacion" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Empresa" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Fechapubli" Nullable="true" MaxLength="30" />
+  </ComplexType>
 </Schema>

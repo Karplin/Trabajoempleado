@@ -66,6 +66,9 @@
     <Property Name="Email" Type="varchar" MaxLength="30" />
     <Property Name="Fechapubli" Type="varchar" MaxLength="30" />
   </EntityType>
+  <Function Name="busca_categoria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+  </Function>
   <EntityContainer Name="bolsaempleosModelStoreContainer">
     <EntitySet Name="ADMINISTRADORES" EntityType="Self.ADMINISTRADORES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CANDIDATOS" EntityType="Self.CANDIDATOS" Schema="dbo" store:Type="Tables" />

@@ -12,6 +12,8 @@ namespace Trabajoempleados.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class bolsaempleosEntities : DbContext
     {
@@ -30,5 +32,14 @@ namespace Trabajoempleados.Models
         public virtual DbSet<CONTRATISTAS> CONTRATISTAS { get; set; }
         public virtual DbSet<EMPLEOS> EMPLEOS { get; set; }
         public virtual DbSet<CATEGORIA> CATEGORIA { get; set; }
+    
+        public virtual ObjectResult<busca_categoria_Result> busca_categoria(string nombre)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<busca_categoria_Result>("busca_categoria", nombreParameter);
+        }
     }
 }

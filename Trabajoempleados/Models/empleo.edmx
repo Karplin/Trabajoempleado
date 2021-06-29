@@ -71,6 +71,9 @@
           <Property Name="Email" Type="varchar" MaxLength="30" />
           <Property Name="Fechapubli" Type="varchar" MaxLength="30" />
         </EntityType>
+        <Function Name="busca_categoria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nombre" Type="varchar" Mode="In" />
+        </Function>
         <EntityContainer Name="bolsaempleosModelStoreContainer">
           <EntitySet Name="ADMINISTRADORES" EntityType="Self.ADMINISTRADORES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CANDIDATOS" EntityType="Self.CANDIDATOS" Schema="dbo" store:Type="Tables" />
@@ -129,6 +132,9 @@
           <EntitySet Name="CONTRATISTAS" EntityType="Self.CONTRATISTAS" />
           <EntitySet Name="EMPLEOS" EntityType="bolsaempleosModel.EMPLEOS" />
           <EntitySet Name="CATEGORIA" EntityType="bolsaempleosModel.CATEGORIA" />
+          <FunctionImport Name="busca_categoria" ReturnType="Collection(bolsaempleosModel.busca_categoria_Result)">
+          <Parameter Name="Nombre" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="EMPLEOS">
           <Key>
@@ -155,6 +161,13 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
+        <ComplexType Name="busca_categoria_Result">
+          <Property Type="Binary" Name="Logo" Nullable="true" />
+          <Property Type="String" Name="Posicion" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Ubicacion" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Empresa" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="Fechapubli" Nullable="true" MaxLength="30" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -232,6 +245,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="busca_categoria" FunctionName="bolsaempleosModel.Store.busca_categoria">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="bolsaempleosModel.busca_categoria_Result">
+                <ScalarProperty Name="Logo" ColumnName="Logo" />
+                <ScalarProperty Name="Posicion" ColumnName="Posicion" />
+                <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+                <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+                <ScalarProperty Name="Fechapubli" ColumnName="Fechapubli" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

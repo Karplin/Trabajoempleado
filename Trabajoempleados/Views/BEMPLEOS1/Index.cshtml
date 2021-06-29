@@ -1,6 +1,8 @@
 ﻿
 @model Trabajoempleados.Models.combinados
 
+
+
 @{
     ViewBag.Title = "Index";
 
@@ -27,16 +29,16 @@
         <hr />
         <h2>Buscar por Categoria</h2>
 
-        <form action="resultadocategoria" method="post">
+        <form action="Indexe" method="post">
 
-            @Html.DropDownListFor(Model => Model.Categoria.Nombre, ViewData["items"] as IEnumerable<SelectListItem>, "Selecciona", new { @class = "form-control", @placeholder = "Ingrese la categoria", @name = "departadestino" })
+            @Html.DropDownListFor(Model => Model.Categoria.Nombre, ViewData["items"] as IEnumerable<SelectListItem>, "Selecciona", new { @class = "form-control", @placeholder = "Ingrese la categoria", @name = "catever" })
             @Html.ValidationMessageFor(Model => Model.Categoria.Nombre, "", new { @class = "text-danger" })
 
-
+            <input type="submit" value="Buscar" class="btn btn-success" />
         </form>
 
 
-        <input type="submit" value="Buscar" class="btn btn-success" />
+
 
         <div class="containerx">
 

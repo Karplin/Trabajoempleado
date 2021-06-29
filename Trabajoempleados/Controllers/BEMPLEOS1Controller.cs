@@ -18,6 +18,9 @@ namespace Trabajoempleados.Controllers
 {
     public class BEMPLEOS1Controller : Controller
     {
+
+        filtros ola = new filtros();
+
         private bolsaempleosEntities db = new bolsaempleosEntities();
 
         // GET: BEMPLEOS1
@@ -35,14 +38,29 @@ namespace Trabajoempleados.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(string categoria)
+        public ActionResult Indexe(string nombre)
         {
-            //return db.docu_destino(categoria).ToList();
-
             ViewData["items"] = ListarCategoria();
 
-            return View(db.EMPLEOS.ToList());
+            return View(ola.Buscarcategoria(nombre));
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         // GET: BEMPLEOS1/Details/5
         public ActionResult Details(int? id)
