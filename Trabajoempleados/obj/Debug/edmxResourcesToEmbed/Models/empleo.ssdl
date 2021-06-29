@@ -25,6 +25,13 @@
     <Property Name="Contrasena" Type="varchar" MaxLength="30" />
     <Property Name="fechanacimiento" Type="varchar" MaxLength="30" />
   </EntityType>
+  <EntityType Name="CATEGORIA">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="30" />
+  </EntityType>
   <EntityType Name="CONTRATISTAS">
     <Key>
       <PropertyRef Name="Id" />
@@ -62,6 +69,7 @@
   <EntityContainer Name="bolsaempleosModelStoreContainer">
     <EntitySet Name="ADMINISTRADORES" EntityType="Self.ADMINISTRADORES" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CANDIDATOS" EntityType="Self.CANDIDATOS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CATEGORIA" EntityType="Self.CATEGORIA" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CONTRATISTAS" EntityType="Self.CONTRATISTAS" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EMPLEOS" EntityType="Self.EMPLEOS" Schema="dbo" store:Type="Tables" />
   </EntityContainer>

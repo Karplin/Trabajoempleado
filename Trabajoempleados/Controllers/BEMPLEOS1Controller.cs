@@ -23,6 +23,24 @@ namespace Trabajoempleados.Controllers
         // GET: BEMPLEOS1
         public ActionResult Index()
         {
+            ViewData["items"] = ListarCategoria();
+
+            combinados model = new combinados
+            {
+                Empleos = db.EMPLEOS.ToList(),
+                Categoria = new CATEGORIA()
+            };
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Index(string categoria)
+        {
+            //return db.docu_destino(categoria).ToList();
+
+            ViewData["items"] = ListarCategoria();
+
             return View(db.EMPLEOS.ToList());
         }
 
@@ -41,9 +59,65 @@ namespace Trabajoempleados.Controllers
             return View(eMPLEOS);
         }
 
+
+        public List<SelectListItem> ListarTipo()
+        {
+
+            //--------------------------------------------------------------------------
+            List<SelectListItem> itemz = new List<SelectListItem>();
+            {
+                SelectListItem item1 = new SelectListItem() { Text = "Tiempo Completo", Value = "Tiempo Completo", Selected = true };
+                SelectListItem item2 = new SelectListItem() { Text = "Medio Tiempo", Value = "Medio Tiempo", Selected = false };
+                SelectListItem item3 = new SelectListItem() { Text = "Freelance", Value = "Freelance", Selected = false };
+
+                itemz.Add(item1);
+                itemz.Add(item2);
+                itemz.Add(item3);
+            };
+
+            return itemz;
+
+        }
+
+
+        public List<SelectListItem> ListarCategoria()
+        {
+            List<CATEGORIA> lst = null;
+
+            using (bolsaempleosEntities dbx = new bolsaempleosEntities())
+            {
+                lst = (from d in dbx.CATEGORIA.AsEnumerable()
+                       select new CATEGORIA
+                       {
+                           Id = d.Id,
+                           Nombre = d.Nombre
+                       }).ToList();
+            }
+
+            //--------------------------------------------------------------------------
+            List<SelectListItem> itemz = lst.ConvertAll(d =>
+            {
+                return new SelectListItem()
+                {
+                    Text = d.Nombre.ToString(),
+                    Value = d.Nombre.ToString(),
+                    Selected = false
+
+                };
+
+            });
+
+            return itemz;
+
+        }
+
+
+
         // GET: BEMPLEOS1/Create
         public ActionResult Create()
         {
+            ViewData["items"] = ListarCategoria();
+            ViewData["itemsx"] = ListarTipo();
             return View();
         }
 
@@ -54,6 +128,8 @@ namespace Trabajoempleados.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(EMPLEOS emple, [Bind(Include = "Id,IdEmpleo,IdEmpresa,Empresa,Tipo,Logo,Posicion,Ubicacion,Categoria,Descripcion,caplicar,Email,Fechapubli")] EMPLEOS eMPLEOS)
         {
+            ViewData["items"] = ListarCategoria();
+            ViewData["itemsx"] = ListarTipo();
             // Fecha
             var anio = DateTime.Now;
             var fecha = anio.ToShortDateString();

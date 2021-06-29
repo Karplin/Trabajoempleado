@@ -176,10 +176,14 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="modelos\combinados.cs" />
     <Compile Include="Models\ADMINISTRADORES.cs">
       <DependentUpon>empleo.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CANDIDATOS.cs">
+      <DependentUpon>empleo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CATEGORIA.cs">
       <DependentUpon>empleo.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CONTRATISTAS.cs">
@@ -293,6 +297,7 @@
     <Content Include="Views\BADMINISTRADORES1\Details.cshtml" />
     <Content Include="Views\BADMINISTRADORES1\Edit.cshtml" />
     <Content Include="Views\BADMINISTRADORES1\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

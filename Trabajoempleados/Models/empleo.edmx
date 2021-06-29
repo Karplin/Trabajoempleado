@@ -30,6 +30,13 @@
           <Property Name="Contrasena" Type="varchar" MaxLength="30" />
           <Property Name="fechanacimiento" Type="varchar" MaxLength="30" />
         </EntityType>
+        <EntityType Name="CATEGORIA">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="30" />
+        </EntityType>
         <EntityType Name="CONTRATISTAS">
           <Key>
             <PropertyRef Name="Id" />
@@ -67,6 +74,7 @@
         <EntityContainer Name="bolsaempleosModelStoreContainer">
           <EntitySet Name="ADMINISTRADORES" EntityType="Self.ADMINISTRADORES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CANDIDATOS" EntityType="Self.CANDIDATOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CATEGORIA" EntityType="Self.CATEGORIA" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CONTRATISTAS" EntityType="Self.CONTRATISTAS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EMPLEOS" EntityType="Self.EMPLEOS" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -120,6 +128,7 @@
           <EntitySet Name="CANDIDATOS" EntityType="Self.CANDIDATOS" />
           <EntitySet Name="CONTRATISTAS" EntityType="Self.CONTRATISTAS" />
           <EntitySet Name="EMPLEOS" EntityType="bolsaempleosModel.EMPLEOS" />
+          <EntitySet Name="CATEGORIA" EntityType="bolsaempleosModel.CATEGORIA" />
         </EntityContainer>
         <EntityType Name="EMPLEOS">
           <Key>
@@ -138,6 +147,13 @@
           <Property Name="caplicar" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="Fechapubli" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CATEGORIA">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -204,6 +220,14 @@
                 <ScalarProperty Name="Empresa" ColumnName="Empresa" />
                 <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
                 <ScalarProperty Name="IdEmpleo" ColumnName="IdEmpleo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CATEGORIA">
+            <EntityTypeMapping TypeName="bolsaempleosModel.CATEGORIA">
+              <MappingFragment StoreEntitySet="CATEGORIA">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

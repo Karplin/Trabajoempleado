@@ -29,5 +29,6 @@ namespace Trabajoempleados.Models
         public virtual DbSet<CANDIDATOS> CANDIDATOS { get; set; }
         public virtual DbSet<CONTRATISTAS> CONTRATISTAS { get; set; }
         public virtual DbSet<EMPLEOS> EMPLEOS { get; set; }
+        public virtual DbSet<CATEGORIA> CATEGORIA { get; set; }
     }
 }
