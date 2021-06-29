@@ -12,6 +12,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Web.Helpers;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.Text.RegularExpressions;
 
 namespace Trabajoempleados.Controllers
 {
@@ -51,7 +52,7 @@ namespace Trabajoempleados.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,IdEmpleo,IdEmpresa,Empresa,Tipo,Logo,Posicion,Ubicacion,Categoria,Descripcion,caplicar,Email,Fechapubli")] EMPLEOS eMPLEOS)
+        public ActionResult Create(EMPLEOS emple, [Bind(Include = "Id,IdEmpleo,IdEmpresa,Empresa,Tipo,Logo,Posicion,Ubicacion,Categoria,Descripcion,caplicar,Email,Fechapubli")] EMPLEOS eMPLEOS)
         {
             // Fecha
             var anio = DateTime.Now;
@@ -65,6 +66,63 @@ namespace Trabajoempleados.Controllers
             WebImage image = new WebImage(FileBase.InputStream);
 
             eMPLEOS.Logo = image.GetBytes();
+
+            var code = string.Empty;
+            var code2 = string.Empty;
+
+            // ORIGEN DE
+
+            code = Regex.Replace(emple.Posicion, @"[\p{P}\p{S}\p{C}\p{N}]+", "");
+            code = Regex.Replace(code, @"\p{Z}+", " ");
+            code = Regex.Replace(code.Trim(), @"\s+(?:[JS]R|I{1,3}|I[VX]|VI{0,3})$", "", RegexOptions.IgnoreCase);
+            code = Regex.Replace(code, @"^(\p{L})[^\s]*(?:\s+(?:\p{L}+\s+(?=\p{L}))?(?:(\p{L})\p{L}*)?)?$", "$1$2").Trim();
+
+
+            if (code.Length > 2)
+            {
+                code = code.Substring(0, 2);
+            }
+
+            code = code.ToUpperInvariant();
+
+            int no = 0;
+
+            try
+            {
+                no = db.EMPLEOS
+                .OrderByDescending(x => x.Id)
+                .First().Id;
+
+
+                string codigo;
+                string c1 = "00", c2 = "0";
+                int secuencia = 1 + no;
+                if (secuencia < 10)
+                {
+                    codigo = code + "-" + c1 + secuencia;
+                }
+                else if (secuencia < 100)
+                {
+                    codigo = code + "-" + c2 + secuencia;
+                }
+                else 
+                { 
+                    codigo = code + "-" + secuencia;
+                }
+                
+                eMPLEOS.IdEmpleo = codigo;
+
+            }
+            catch
+            {
+                string c1 = "00";
+                no = 0;
+
+                int secuencia = 1 + no;
+
+                string codigo = code + "-" + c1 + secuencia;
+                eMPLEOS.IdEmpleo = codigo;
+            }
 
             if (ModelState.IsValid)
             {
@@ -174,8 +232,25 @@ namespace Trabajoempleados.Controllers
             memoryStream.Position = 0;
 
             return File(memoryStream, "image/jpg");
-            
+       
         }
+
+        public ActionResult getImage2(int id)
+        {
+            EMPLEOS eMPLEOS = db.EMPLEOS.Find(id);
+            byte[] byteImage = eMPLEOS.Logo;
+
+            MemoryStream memoryStream = new MemoryStream(byteImage);
+            Image image = Image.FromStream(memoryStream);
+
+            memoryStream = new MemoryStream();
+            image.Save(memoryStream, ImageFormat.Jpeg);
+            memoryStream.Position = 0;
+
+            return File(memoryStream, "image/jpg");
+
+        }
+
 
 
     }

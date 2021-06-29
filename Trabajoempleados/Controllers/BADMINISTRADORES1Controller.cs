@@ -7,6 +7,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Trabajoempleados.Models;
+using System.Text;
+using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace Trabajoempleados.Controllers
 {
@@ -48,6 +51,8 @@ namespace Trabajoempleados.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IdAdmin,Cedula,Nombre,Apellido,Correo,Contrasena,fechanacimiento")] ADMINISTRADORES aDMINISTRADORES)
         {
+
+            
             if (ModelState.IsValid)
             {
                 db.ADMINISTRADORES.Add(aDMINISTRADORES);

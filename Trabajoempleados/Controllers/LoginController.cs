@@ -19,12 +19,12 @@ namespace Trabajoempleados.Controllers
         [HttpPost]
         public ActionResult Login(string Correo, string Contrasena)
         {
-
+            int id;
             var admin = db.ADMINISTRADORES.FirstOrDefault(x => x.Correo == Correo && x.Contrasena == Contrasena);
-
+            
             if (admin != null)
             {
-                return RedirectToAction("Create", "BCANDIDATOS1");
+                return RedirectToAction("Index", "BEMPLEOS1", admin.IdAdmin);
             }
 
             else
@@ -33,7 +33,7 @@ namespace Trabajoempleados.Controllers
 
                 if (candidato != null)
                 {
-                    return RedirectToAction("Index", "BCANDIDATOS1");
+                    return RedirectToAction("Index", "BEMPLEOS1", candidato.IdCandidato);
                 }
                 else
                 {
@@ -41,7 +41,7 @@ namespace Trabajoempleados.Controllers
 
                     if (contratista != null)
                     {
-                        return RedirectToAction("Delete", "BCANDIDATOS1");
+                        return RedirectToAction("Index", "BEMPLEOS1",  id = contratista.Id);
                     }
                     else
                     {
