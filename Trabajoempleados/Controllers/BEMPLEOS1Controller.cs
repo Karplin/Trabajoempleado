@@ -390,6 +390,10 @@ namespace Trabajoempleados.Controllers
             return View(Buscarcategoria(nombre));
         }
 
+        public ActionResult Verconfiltro()
+        {
+            return View(db.EMPLEOS.ToList());
+        }
 
 
 

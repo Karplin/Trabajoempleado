@@ -307,11 +307,10 @@
     <Content Include="Views\BEMPLEOS1\Indexe.cshtml" />
     <Content Include="Views\BEMPLEOS1\Veradmin.cshtml" />
     <Content Include="Views\BEMPLEOS1\Indexeadmin.cshtml" />
-    <Content Include="Views\CATEGORIAs\Create.cshtml" />
-    <Content Include="Views\CATEGORIAs\Delete.cshtml" />
     <Content Include="Views\CATEGORIAs\Details.cshtml" />
     <Content Include="Views\CATEGORIAs\Edit.cshtml" />
     <Content Include="Views\CATEGORIAs\Index.cshtml" />
+    <Content Include="Views\BEMPLEOS1\Verconfiltro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

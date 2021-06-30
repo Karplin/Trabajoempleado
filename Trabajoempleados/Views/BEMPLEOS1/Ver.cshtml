@@ -27,12 +27,12 @@
         
         <hr />
         <hr />
-        <input type="text" id="txtsearch" placeholder="Buscar por palabras claves" />
         <h2>Buscar por Categoria</h2>
+        
 
 
         <form action="Indexe" method="post">
-
+            <li>@Html.ActionLink("Buscar por palabras clave", "Verconfiltro")</li>
 
             @Html.DropDownListFor(Model => Model.Categoria.Nombre, ViewData["items"] as IEnumerable<SelectListItem>, new { @Name = "nombre" })
             @Html.ValidationMessageFor(Model => Model.Categoria.Nombre, "", new { @class = "text-danger" })

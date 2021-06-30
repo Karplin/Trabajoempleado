@@ -1,0 +1,113 @@
+﻿@model IEnumerable<Trabajoempleados.Models.EMPLEOS>
+
+@{
+    ViewBag.Title = "Verconfiltro";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h2>Verconfiltro</h2>
+
+<p>
+</p>
+<form action="" class="form-register2">
+    <table class="table" id="tableDemo">
+        <thead>
+            <tr>
+                <th>
+
+                    @Html.DisplayNameFor(model => model.Fechapubli)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Logo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Posicion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ubicacion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Categoria)
+                </th>
+       
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.OrderByDescending(i => i.Id))
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fechapubli)
+                </td>       
+                <td>
+                    <img width="100" src="@Url.Action("getImage","BEMPLEOS1", new {id = item.Id })" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Posicion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ubicacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Categoria)
+                </td>
+
+                <td>
+                    <a class="btn btn-primary btn-xs" title="Editar" href="@Url.Action("Details", "BEMPLEOS1", new { id = item.Id})">
+                        <i class="glyphicon glyphicon-list"></i>
+                    </a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</form>
+
+@section scripts{
+
+    <script>$('#tableDemo').DataTable();</script>
+
+    <script>
+        function LoadingOverlayShow(id) {
+            $(id).LoadingOverlay("show", {
+                color: "rgba(255, 255, 255, 0.5)",
+                image: "/Content/loading.gif",
+                imageResizeFactor: 0.6,
+                //imageAnimation: "1.5s fadein",
+            });
+        }
+        function LoadingOverlayHide(id) {
+            $(id).LoadingOverlay("hide");
+        }
+        function EliminarUsuario(id) {
+            $.confirm({
+                title: 'Eliminar Documento',
+
+                content: '¿Seguro de eliminar este Documento?',
+                buttons: {
+                    Confirmar: function () {
+                        LoadingOverlayShow("#tableDemo");
+                        $.ajax({
+                            url: "/Doc/Eliminar",
+                            type: "post",
+                            data: { idd: id }
+                        }).done(function (response) {
+                            location.reload();
+                        }).fail(function (jqXHR, textStatus, errorThrown) {
+                            alert(textStatus);
+                            location.reload();
+                        });
+
+                    },
+                    Cancelar: function () {
+
+                    },
+                }
+            });
+
+        }
+
+
+    </script>
+}
