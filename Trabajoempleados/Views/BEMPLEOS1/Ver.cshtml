@@ -27,7 +27,9 @@
 
         <hr />
         <hr />
+        <input type="text" id="txtsearch" placeholder="Buscar por palabras claves" />
         <h2>Buscar por Categoria</h2>
+
 
         <form action="Indexe" method="post">
 
@@ -45,7 +47,7 @@
 
 
 
-            @foreach (var item in Model.Empleos.OrderByDescending(i => i.Id))
+            @foreach (var item in Model.Empleos)
             {
                 <div class="itemx">
                     @*@Html.DisplayFor(model => model.Logo)*@
@@ -64,7 +66,86 @@
         </div>
 
     </main>
+    @*<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+            $("txtsearch").on("keyup", function () {
+                var txtenter = $(this).val();
+                $("div").each(function (results) {
+                    if (results != 0)
+                    {
+                        var id = $(this).find("td:nth-child(2)").text();
+                        if (id.indexOf(txtenter) !== 0 && id.toLowerCase().indexOf(txtenter.toLowerCase()) < 0) {
+                            $(this).hide();
+                        }
+                        else {
+                            $(this).show();
+                        }
+                    }
+                });
+            });
+        </script>*@
 
+
+    @{ var cantidadPaginas = (int)Math.Ceiling((double)Model.TotalDeRegistros / Model.RegistrosPorPagina); }
+
+    <!--Funcionalidad: Anterior y siguiente-->
+
+    <ul class="pagination">
+       @if (Model.PaginaActual == 1)
+        {
+          <li class="disabled">@Html.ActionLink("Anterior", null, new { pagina = 1})</li> 
+        }
+        else
+        {
+          <li>@Html.ActionLink("Anterior", null, new { pagina = Model.PaginaActual - 1})</li>
+        }
+
+        @if (Model.PaginaActual == cantidadPaginas)
+        {
+          <li class="disabled">@Html.ActionLink("Siguiente", null, new { pagina = cantidadPaginas})</li> 
+        }
+        else
+        {
+          <li>@Html.ActionLink("Siguiente", null, new {pagina = Model.PaginaActual + 1})</li>
+        }
+    </ul>
+
+    <!--Funcionalidad: Páginas-->
+
+    @{ int Inicial = 1;
+                    var radio = 3;
+                    var cantidadMaximaDePaginas = radio * 2 + 1;
+                    int Final = (cantidadPaginas > cantidadMaximaDePaginas) ? cantidadMaximaDePaginas : cantidadPaginas;
+                    if (Model.PaginaActual > radio + 1)
+                    {
+                        Inicial = Model.PaginaActual - radio;
+                        if (cantidadPaginas > Model.PaginaActual + radio)
+                        {
+                            Final = Model.PaginaActual + radio;
+                        }
+                        else
+                        {
+                            Final = cantidadPaginas;
+                        }
+                    } }
+
+
+    @*<ul class="pagination">
+        @{Model.ValoresQueryString["pagina"] = 1; }
+        <li>@Html.ActionLink("Primera", null, Model.ValoresQueryString)</li>
+        @for (int i = Inicial; i <= Final; i++)
+        {
+            Model.ValoresQueryString["pagina"] = i;
+            if (i == Model.PaginaActual)
+            {
+<li class="active">@Html.ActionLink(i.ToString(), null, Model.ValoresQueryString)</li> }
+                else
+                {
+<li>@Html.ActionLink(i.ToString(), null, Model.ValoresQueryString)</li>}
+            }
+        @{Model.ValoresQueryString["pagina"] = cantidadPaginas; }
+        <li>@Html.ActionLink("Ultima", null, Model.ValoresQueryString)</li>
+    </ul>*@
 
     <a name="end"></a>
 </body>

@@ -24,7 +24,7 @@ namespace Trabajoempleados.Controllers
         private bolsaempleosEntities db = new bolsaempleosEntities();
 
         // GET: BEMPLEOS1
-        public ActionResult Ver()
+        public ActionResult Ver(int pagina = 1)
         {
             ViewData["items"] = ListarCategoria();
 
@@ -33,6 +33,22 @@ namespace Trabajoempleados.Controllers
                 Empleos = db.EMPLEOS.ToList(),
                 Categoria = new CATEGORIA()
             };
+
+            var cantidadRegistrosPorPagina = 9; // parámetro
+            using (var db = new bolsaempleosEntities())
+            {
+
+                var item = db.EMPLEOS.OrderByDescending(x => x.Id)
+                    .Skip((pagina - 1) * cantidadRegistrosPorPagina)
+                    .Take(cantidadRegistrosPorPagina).ToList();
+                var totalDeRegistros = db.EMPLEOS.Count();
+
+    
+                model.Empleos = item;
+                model.PaginaActual = pagina;
+                model.TotalDeRegistros = totalDeRegistros;
+                model.RegistrosPorPagina = cantidadRegistrosPorPagina;             
+            }
 
             return View(model);
         }

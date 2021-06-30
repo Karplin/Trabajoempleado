@@ -7,7 +7,7 @@ using Trabajoempleados.Models;
 
 namespace Trabajoempleados.Models
 {
-    public class combinados
+    public class combinados: BaseModelo
     {
         public List<EMPLEOS> Empleos {get; set;}
         public CATEGORIA Categoria { get; set; }
