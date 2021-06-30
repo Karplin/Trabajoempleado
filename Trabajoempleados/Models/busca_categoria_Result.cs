@@ -14,6 +14,7 @@ namespace Trabajoempleados.Models
     public partial class busca_categoria_Result
     {
         public int Id { get; set; }
+        public string IdEmpleo { get; set; }
         public byte[] Logo { get; set; }
         public string Posicion { get; set; }
         public string Ubicacion { get; set; }

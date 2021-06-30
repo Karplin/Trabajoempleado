@@ -392,5 +392,12 @@ namespace Trabajoempleados.Controllers
 
 
 
+
+
+
+
+
+
+
     }
 }

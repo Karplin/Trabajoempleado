@@ -163,6 +163,7 @@
         </EntityType>
         <ComplexType Name="busca_categoria_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="IdEmpleo" Nullable="true" MaxLength="30" />
           <Property Type="Binary" Name="Logo" Nullable="true" />
           <Property Type="String" Name="Posicion" Nullable="true" MaxLength="30" />
           <Property Type="String" Name="Ubicacion" Nullable="true" MaxLength="30" />
@@ -250,6 +251,7 @@
             <ResultMapping>
               <ComplexTypeMapping TypeName="bolsaempleosModel.busca_categoria_Result">
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdEmpleo" ColumnName="IdEmpleo" />
                 <ScalarProperty Name="Logo" ColumnName="Logo" />
                 <ScalarProperty Name="Posicion" ColumnName="Posicion" />
                 <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />

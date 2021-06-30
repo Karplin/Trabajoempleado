@@ -31,7 +31,7 @@
                     @*@Html.DisplayFor(model => model.Logo)*@
                     <img width="360" height="215" src="@Url.Action("getImage2","BEMPLEOS1", new {Id= item.Id })" title="@item.Posicion" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></img>
                     <div class="itemx-text">
-                        <h4 class="sizec">@item.Posicion - @item.Id</h4>
+                        <h4 class="sizec">@item.Posicion - @item.IdEmpleo</h4>
                         <p>@item.Ubicacion</p>
                         <p>@item.Posicion</p>
                         <p>@item.Empresa</p>
