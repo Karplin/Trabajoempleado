@@ -7,17 +7,19 @@
 
     @Html.AntiForgeryToken()
 
-
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
     if (@ViewBag.Mensaje != null)
     {
-        <div id="popupdiv" style="border: 2px solid red; background-color:white; display: none;">
-            @ViewBag.Mensaje
-        </div>
-
+     <div id="popupdiv" style="border: 2px solid red; background-color:white; display: none;">
+    @ViewBag.Mensaje
+    </div>
     }
-
     <body>
-
         <div class="login-box">
 
             <form>

@@ -24,7 +24,7 @@ namespace Trabajoempleados.Controllers
             
             if (admin != null)
             {
-                return RedirectToAction("Ver", "BEMPLEOS1", admin.IdAdmin);
+                return RedirectToAction("Veradmin", "BEMPLEOS1", admin.IdAdmin);
             }
 
             else
@@ -45,7 +45,7 @@ namespace Trabajoempleados.Controllers
                     }
                     else
                     {
-                        ViewBag.Mensaje = "Datos Incorrectos, ninguna cuenta con estas credenciales.";
+                        ViewBag.Mensaje = "ISDNFIS";
                         return View();
                     }
                 }

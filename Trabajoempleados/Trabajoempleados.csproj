@@ -304,6 +304,8 @@
     <Content Include="Views\BADMINISTRADORES1\Index.cshtml" />
     <Content Include="Views\Shared\_Layout2.cshtml" />
     <Content Include="Views\BEMPLEOS1\Indexe.cshtml" />
+    <Content Include="Views\BEMPLEOS1\Veradmin.cshtml" />
+    <Content Include="Views\BEMPLEOS1\Indexeadmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

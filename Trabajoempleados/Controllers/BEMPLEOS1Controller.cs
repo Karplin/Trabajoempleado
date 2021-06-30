@@ -352,5 +352,45 @@ namespace Trabajoempleados.Controllers
 
 
 
+
+        // ADMINISTRADOR ----------------------------------
+        public ActionResult Veradmin(int pagina = 1)
+        {
+            ViewData["items"] = ListarCategoria();
+
+            combinados model = new combinados
+            {
+                Empleos = db.EMPLEOS.ToList(),
+                Categoria = new CATEGORIA()
+            };
+
+            var cantidadRegistrosPorPagina = 9; // parámetro
+            using (var db = new bolsaempleosEntities())
+            {
+
+                var item = db.EMPLEOS.OrderByDescending(x => x.Id)
+                    .Skip((pagina - 1) * cantidadRegistrosPorPagina)
+                    .Take(cantidadRegistrosPorPagina).ToList();
+                var totalDeRegistros = db.EMPLEOS.Count();
+
+
+                model.Empleos = item;
+                model.PaginaActual = pagina;
+                model.TotalDeRegistros = totalDeRegistros;
+                model.RegistrosPorPagina = cantidadRegistrosPorPagina;
+            }
+
+            return View(model);
+        }
+
+
+        [HttpPost]
+        public ActionResult Indexeadmin(string nombre)
+        {
+            return View(Buscarcategoria(nombre));
+        }
+
+
+
     }
 }
