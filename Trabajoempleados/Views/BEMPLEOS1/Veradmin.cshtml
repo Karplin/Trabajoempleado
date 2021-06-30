@@ -33,6 +33,7 @@
 
         <form action="Indexeadmin" method="post">
 
+            <li>@Html.ActionLink("Modificar Categorias", "Index", "CATEGORIAs", new { area = "" }, null)</li>
 
             @Html.DropDownListFor(Model => Model.Categoria.Nombre, ViewData["items"] as IEnumerable<SelectListItem>, new { @Name = "nombre" })
             @Html.ValidationMessageFor(Model => Model.Categoria.Nombre, "", new { @class = "text-danger" })
