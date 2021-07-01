@@ -27,9 +27,10 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("Vacantes", "Index", "Buscar Empleo", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("Iniciar Sesión", "Index", "Iniciar Sesión", new { area = "" }, null)</li>
-                    <li style="background-color: deepskyblue">@Html.ActionLink("Registrarse", "Index", "Registrarse", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Empleos", "Ver", "BEMPLEOS1", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Refinar Búsqueda", "Verconfiltro", "BEMPLEOS1", new { area = "" }, null)</li>
+                    <li>@Html.ActionLink("Cerrar Sesión", "Login", "Login", new { area = "" }, null)</li>
+                    <li style="background-color: deepskyblue"></li>
                 </ul>
             </div>
         </div>

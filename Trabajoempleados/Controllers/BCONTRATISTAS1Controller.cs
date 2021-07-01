@@ -112,7 +112,7 @@ namespace Trabajoempleados.Controllers
             {
                 db.CONTRATISTAS.Add(cONTRATISTAS);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Ver", "BEMPLEOS1");
             }
 
             return View(cONTRATISTAS);
@@ -144,7 +144,7 @@ namespace Trabajoempleados.Controllers
             {
                 db.Entry(cONTRATISTAS).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Ver", "BEMPLEOS1");
             }
             return View(cONTRATISTAS);
         }
@@ -172,7 +172,7 @@ namespace Trabajoempleados.Controllers
             CONTRATISTAS cONTRATISTAS = db.CONTRATISTAS.Find(id);
             db.CONTRATISTAS.Remove(cONTRATISTAS);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Ver", "BEMPLEOS1");
         }
 
         protected override void Dispose(bool disposing)

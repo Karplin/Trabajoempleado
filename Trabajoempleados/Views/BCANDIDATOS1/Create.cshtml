@@ -1,15 +1,34 @@
 ﻿@model Trabajoempleados.Models.CANDIDATOS
 
+
+@{
+    ViewBag.Title = "Registro";
+    Layout = "~/Views/Shared/_Layoutneutro.cshtml";
+}
+  
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
         <div>
-            <h4 class="text-center" style="font-size: 38px; margin:88px">Registro Candidato</h4>
+            <h4 class="text-center" style="font-size: 38px; margin:88px">Registrarse</h4>
         </div>
 
         <div class="center-pageCreate">
+
+            <script type="text/javascript">
+                $(function () {
+                    $('.date-picker').datepicker({
+                        dateFormat: 'dd/mm/yy',
+                        changeMonth: true,
+                        changeYear: true
+                    });
+
+                });
+
+            </script>
 
 
             <hr />
@@ -57,7 +76,7 @@
             <div class="form-group">
                 @Html.Label("Fecha de nacimiento", htmlAttributes: new { @class = " col-lg-3 fnacimientolabel" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.fechanacimiento, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.EditorFor(model => model.fechanacimiento, new { htmlAttributes = new { @class = "date-picker" } })
                     @Html.ValidationMessageFor(model => model.fechanacimiento, "", new { @class = "text-danger" })
                 </div>
             </div>

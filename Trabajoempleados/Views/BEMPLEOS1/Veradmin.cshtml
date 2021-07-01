@@ -5,6 +5,8 @@
 
 @{
     ViewBag.Title = "Ver Admin";
+    Layout = "~/Views/Shared/_Layout4.cshtml";
+
 
 }
 
@@ -27,17 +29,18 @@
 
         <hr />
         <hr />
-        <input type="text" id="txtsearch" placeholder="Buscar por palabras claves" />
-        <h2>Buscar por Categoria</h2>
 
+        <h2>Buscar por Categoria</h2>
 
         <form action="Indexeadmin" method="post">
 
-            <li>@Html.ActionLink("Modificar Categorias", "Index", "CATEGORIAs", new { area = "" }, null)</li>
+
 
             @Html.DropDownListFor(Model => Model.Categoria.Nombre, ViewData["items"] as IEnumerable<SelectListItem>, new { @Name = "nombre" })
             @Html.ValidationMessageFor(Model => Model.Categoria.Nombre, "", new { @class = "text-danger" })
 
+
+            <li>@Html.ActionLink("Modificar Categorias", "Index", "CATEGORIAs", new { area = "" }, null)</li>
             <input type="submit" value="Buscar" class="btn btn-success" />
         </form>
 
@@ -54,15 +57,17 @@
                     @*@Html.DisplayFor(model => model.Logo)*@
                     <img width="360" height="215" src="@Url.Action("getImage2","BEMPLEOS1", new {Id= item.Id })" title="@item.Posicion" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></img>
                     <div class="itemx-text">
-                        <h4 class="sizec">@item.Posicion - @item.IdEmpleo</h4>
+                        <h4 class="sizec">@item.Posicion | @item.IdEmpleo</h4>
                         <p>@item.Ubicacion</p>
                         <p>@item.Posicion</p>
                         <p>@item.Empresa</p>
                         <p>@item.Fechapubli</p>
 
-                        @Html.ActionLink("Details", "Details", new { id = item.Id })
+                        <br />
                         @Html.ActionLink("Modificar ", "Edit", new { id = item.Id })
                         @Html.ActionLink(" - Eliminar", "Delete", new { id = item.Id })
+                        <br />
+                        @Html.ActionLink("Ver más", "Detailsadmin", new { id = item.Id })
                     </div>
                 </div>
             }

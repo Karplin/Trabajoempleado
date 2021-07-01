@@ -36,7 +36,9 @@
                         <p>@item.Posicion</p>
                         <p>@item.Empresa</p>
                         <p>@item.Fechapubli</p>
-                        @Html.ActionLink("Details", "Details", new { id = item.Id })
+
+                        <br />
+                        @Html.ActionLink("Ver más", "Details", new { id = item.Id })
                     </div>
                 </div>
             }
@@ -45,7 +47,7 @@
 
     </main>
 
-    @Html.ActionLink("Back to List", "Ver", "BEMPLEOS1")
+
 
     <a name="end"></a>
 </body>

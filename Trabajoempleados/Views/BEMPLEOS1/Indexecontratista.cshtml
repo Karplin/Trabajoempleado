@@ -1,0 +1,143 @@
+﻿@model IEnumerable<Trabajoempleados.Models.busca_categoria_Result>
+
+@{
+    ViewBag.Title = "Indexe";
+    Layout = "~/Views/Shared/_Layoutcontra.cshtml";
+}
+
+
+<h2>Index</h2>
+
+<link rel="stylesheet" href="~/css/styles.css">
+<link rel="stylesheet" href="~/css/bootstrap-grid.css" />
+<link rel="stylesheet" href="~/css/bootstrap-grid.min.css" />
+<link rel="stylesheet" href="~/css/header-1.css" />
+<link rel="stylesheet" href="~/css/style.css" />
+<link rel="stylesheet" href="~/css/reset.min.css" />
+
+<body>
+    <main>
+        <a name="up"></a>
+        <section style="margin-left:5%" class="py-5 text-center container">
+        </section>
+
+        <hr />
+        <hr />
+
+        <div class="containerx">
+
+            @foreach (var item in Model.OrderByDescending(i => i.Id))
+            {
+                <div class="itemx">
+                    @*@Html.DisplayFor(model => model.Logo)*@
+                    <img width="360" height="215" src="@Url.Action("getImage2","BEMPLEOS1", new {Id= item.Id })" title="@item.Posicion" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></img>
+                    <div class="itemx-text">
+                        <h4 class="sizec">@item.Posicion - @item.IdEmpleo</h4>
+                        <p>@item.Ubicacion</p>
+                        <p>@item.Posicion</p>
+                        <p>@item.Empresa</p>
+                        <p>@item.Fechapubli</p>
+
+                        <br />
+                        @Html.ActionLink("Ver más", "Detailscontra", new { id = item.Id })
+                    </div>
+                </div>
+            }
+
+        </div>
+
+    </main>
+
+
+
+    <a name="end"></a>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<h2>Indexe</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Logo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Posicion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ubicacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empresa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fechapubli)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Logo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Posicion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ubicacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Empresa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fechapubli)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+
+    </table>*@

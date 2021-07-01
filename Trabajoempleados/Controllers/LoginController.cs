@@ -41,7 +41,7 @@ namespace Trabajoempleados.Controllers
 
                     if (contratista != null)
                     {
-                        return RedirectToAction("Ver", "BEMPLEOS1",  id = contratista.Id);
+                        return RedirectToAction("Vercontratista", "BEMPLEOS1",  id = contratista.Id);
                     }
                     else
                     {

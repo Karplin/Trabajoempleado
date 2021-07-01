@@ -1,6 +1,12 @@
 ﻿@model Trabajoempleados.Models.ADMINISTRADORES
 
 
+
+@{
+    ViewBag.Title = "Iniciar Sesion";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
 @using (Html.BeginForm())
 
 {
@@ -73,6 +79,4 @@
 
 
 }
-@{
-    ViewBag.Title = "Login";
-}
+

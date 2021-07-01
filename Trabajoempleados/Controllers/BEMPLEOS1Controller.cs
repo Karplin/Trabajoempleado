@@ -82,7 +82,33 @@ namespace Trabajoempleados.Controllers
             return View(eMPLEOS);
         }
 
+        public ActionResult Detailscontra(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            EMPLEOS eMPLEOS = db.EMPLEOS.Find(id);
+            if (eMPLEOS == null)
+            {
+                return HttpNotFound();
+            }
+            return View(eMPLEOS);
+        }
 
+        public ActionResult Detailsadmin(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            EMPLEOS eMPLEOS = db.EMPLEOS.Find(id);
+            if (eMPLEOS == null)
+            {
+                return HttpNotFound();
+            }
+            return View(eMPLEOS);
+        }
         public List<SelectListItem> ListarTipo()
         {
 
@@ -160,11 +186,23 @@ namespace Trabajoempleados.Controllers
             eMPLEOS.Fechapubli = Convert.ToString(fecha);
             //-------------------------------------------------
 
+            
             HttpPostedFileBase FileBase = Request.Files[0];
+            try
+            {
 
+        
             WebImage image = new WebImage(FileBase.InputStream);
 
             eMPLEOS.Logo = image.GetBytes();
+
+            }
+            catch { }
+
+
+
+
+
 
             var code = string.Empty;
             var code2 = string.Empty;
@@ -320,22 +358,31 @@ namespace Trabajoempleados.Controllers
 
         public ActionResult getImage(int id)
         {
-            EMPLEOS eMPLEOS = db.EMPLEOS.Find(id);
-            byte[] byteImage = eMPLEOS.Logo;
+            try
+            {
+                EMPLEOS eMPLEOS = db.EMPLEOS.Find(id);
+                byte[] byteImage = eMPLEOS.Logo;
 
-            MemoryStream memoryStream = new MemoryStream(byteImage);
-            Image image = Image.FromStream(memoryStream);
+                MemoryStream memoryStream = new MemoryStream(byteImage);
+                Image image = Image.FromStream(memoryStream);
 
-            memoryStream = new MemoryStream();
-            image.Save(memoryStream, ImageFormat.Jpeg);
-            memoryStream.Position = 0;
+                memoryStream = new MemoryStream();
+                image.Save(memoryStream, ImageFormat.Jpeg);
+                memoryStream.Position = 0;
 
-            return File(memoryStream, "image/jpg");
-       
+                return File(memoryStream, "image/jpg");
+            }
+            catch
+            {
+                string ruta = "~/img/prueba.jpg";
+                return File(ruta, "image/jpg");
+
+            }
         }
 
         public ActionResult getImage2(int id)
         {
+            try {
             EMPLEOS eMPLEOS = db.EMPLEOS.Find(id);
             byte[] byteImage = eMPLEOS.Logo;
 
@@ -347,7 +394,14 @@ namespace Trabajoempleados.Controllers
             memoryStream.Position = 0;
 
             return File(memoryStream, "image/jpg");
+            }
+            catch {
+                string ruta = "~/img/prueba.jpg";
+                return File(ruta, "image/jpg");
 
+            }
+
+            
         }
 
 
@@ -395,10 +449,55 @@ namespace Trabajoempleados.Controllers
             return View(db.EMPLEOS.ToList());
         }
 
+        public ActionResult Verconfiltroadmin()
+        {
+            return View(db.EMPLEOS.ToList());
+        }
 
 
 
 
+        // CONTRATISTA ----------------------------------
+        public ActionResult Vercontratista(int pagina = 1)
+        {
+            ViewData["items"] = ListarCategoria();
+
+            combinados model = new combinados
+            {
+                Empleos = db.EMPLEOS.ToList(),
+                Categoria = new CATEGORIA()
+            };
+
+            var cantidadRegistrosPorPagina = 9; // parámetro
+            using (var db = new bolsaempleosEntities())
+            {
+
+                var item = db.EMPLEOS.OrderByDescending(x => x.Id)
+                    .Skip((pagina - 1) * cantidadRegistrosPorPagina)
+                    .Take(cantidadRegistrosPorPagina).ToList();
+                var totalDeRegistros = db.EMPLEOS.Count();
+
+
+                model.Empleos = item;
+                model.PaginaActual = pagina;
+                model.TotalDeRegistros = totalDeRegistros;
+                model.RegistrosPorPagina = cantidadRegistrosPorPagina;
+            }
+
+            return View(model);
+        }
+
+
+        [HttpPost]
+        public ActionResult Indexecontratista(string nombre)
+        {
+            return View(Buscarcategoria(nombre));
+        }
+
+        public ActionResult verconfiltrocontra()
+        {
+            return View(db.EMPLEOS.ToList());
+        }
 
 
 

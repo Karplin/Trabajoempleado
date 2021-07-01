@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Indexe";
+    Layout = "~/Views/Shared/_Layout4.cshtml";
 }
 
 
@@ -36,9 +37,11 @@
                         <p>@item.Posicion</p>
                         <p>@item.Empresa</p>
                         <p>@item.Fechapubli</p>
-                        @Html.ActionLink("Details", "Details", new { id = item.Id })
+                        <br />
                         @Html.ActionLink("Modificar ", "Edit", new { id = item.Id })
                         @Html.ActionLink(" - Eliminar", "Delete", new { id = item.Id })
+                        <br />
+                        @Html.ActionLink("Ver más", "Detailsadmin", new { id = item.Id })
                     </div>
                 </div>
             }
@@ -47,7 +50,7 @@
 
     </main>
 
-    @Html.ActionLink("Back to List", "Veradmin", "BEMPLEOS1")
+
 
     <a name="end"></a>
 </body>

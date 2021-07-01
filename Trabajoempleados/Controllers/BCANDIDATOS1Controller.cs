@@ -52,7 +52,7 @@ namespace Trabajoempleados.Controllers
             {
                 db.CANDIDATOS.Add(cANDIDATOS);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Ver", "BEMPLEOS1");
             }
 
             return View(cANDIDATOS);
@@ -84,7 +84,7 @@ namespace Trabajoempleados.Controllers
             {
                 db.Entry(cANDIDATOS).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Ver", "BEMPLEOS1");
             }
             return View(cANDIDATOS);
         }
@@ -112,7 +112,7 @@ namespace Trabajoempleados.Controllers
             CANDIDATOS cANDIDATOS = db.CANDIDATOS.Find(id);
             db.CANDIDATOS.Remove(cANDIDATOS);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Ver", "BEMPLEOS1");
         }
 
         protected override void Dispose(bool disposing)

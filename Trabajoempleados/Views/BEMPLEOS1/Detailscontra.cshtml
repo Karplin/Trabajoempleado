@@ -1,0 +1,131 @@
+﻿@model Trabajoempleados.Models.EMPLEOS
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layoutcontra.cshtml";
+}
+
+
+
+<div>
+
+    <h4 style="position: absolute;left: 56%;bottom: 77%;font-size: 33px;">Ficha Tecnica</h4>
+
+    <hr />
+    <dl class="dl-horizontal">
+
+        <div class="center-pageE">
+            <dt class="text-danger form-control fichas" style="text-align:center;">
+                @Html.DisplayName("Codigo Empleo")
+            </dt>
+
+            <dd class="fichas">
+                @Html.DisplayFor(model => model.IdEmpleo)
+            </dd>
+
+            <dt class="text-danger form-control fichas" style="text-align:center;">
+                @Html.DisplayName("Codigo Empresa")
+            </dt>
+
+            <dd class="fichas">
+                @Html.DisplayFor(model => model.IdEmpresa)
+            </dd>
+
+            <dt class="text-danger form-control fichas" style="text-align:center;">
+                @Html.DisplayNameFor(model => model.Empresa)
+            </dt>
+
+            <dd class="fichas">
+                @Html.DisplayFor(model => model.Empresa)
+            </dd>
+
+            <dt class="text-danger form-control fichas" style="text-align:center;">
+                @Html.DisplayNameFor(model => model.Tipo)
+            </dt>
+
+            <dd class="fichas">
+                @Html.DisplayFor(model => model.Tipo)
+            </dd>
+
+            @**<dt class = "text-danger form-control">
+
+                    @Html.DisplayNameFor(model => model.Logo)
+                </dt>*@
+
+
+
+            <dt class="text-danger form-control fichas" style="text-align:center;">
+                @Html.DisplayName("Posición")
+            </dt>
+
+            <dd class="fichas">
+                @Html.DisplayFor(model => model.Posicion)
+            </dd>
+
+            <dt class="text-danger form-control fichas" style="text-align:center;">
+                @Html.DisplayName("Ubicación")
+            </dt>
+
+            <dd class="fichas">
+                @Html.DisplayFor(model => model.Ubicacion)
+            </dd>
+
+            <dt class="text-danger form-control fichas" style="text-align:center;">
+                @Html.DisplayName("Categoría")
+            </dt>
+
+            <dd class="fichas">
+                @Html.DisplayFor(model => model.Categoria)
+            </dd>
+
+            <dt class="text-danger form-control fichas" style="text-align:center;">
+                @Html.DisplayName("¿Cómo aplicar?")
+            </dt>
+
+            <dd class="fichas">
+                @Html.DisplayFor(model => model.caplicar)
+            </dd>
+
+            <dt class="text-danger form-control fichas" style="text-align:center;">
+                @Html.DisplayName("Correo Electrónico")
+            </dt>
+
+            <dd class="fichas">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+
+            <dt class="text-danger form-control fichas" style="text-align:center;">
+                @Html.DisplayName("Fecha")
+            </dt>
+
+            <dd class="fichas">
+                @Html.DisplayFor(model => model.Fechapubli)
+            </dd>
+
+            <dt class="text-danger form-control fichas" style="text-align:center;">
+                @Html.DisplayName("Descripción")
+            </dt>
+
+            <dd style=" margin-right: -182px; margin-top: 10px;">
+                @Html.DisplayFor(model => model.Descripcion)
+            </dd>
+
+        </div>
+
+        <dd>
+
+
+        </dd>
+
+
+    </dl>
+
+    <div class="left-page">
+        <span><img class="avatar" ; style="width:200px" src="@Url.Action("getImage","BEMPLEOS1", new {id=Model.Id})" /></span>
+        @*@Html.DisplayFor(model => model.Logo)*@
+    </div>
+</div>
+@*<p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Ver", "BEMPLEOS1")
+    </p>*@

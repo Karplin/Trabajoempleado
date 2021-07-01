@@ -32,7 +32,6 @@
 
 
         <form action="Indexe" method="post">
-            <li>@Html.ActionLink("Buscar por palabras clave", "Verconfiltro")</li>
 
             @Html.DropDownListFor(Model => Model.Categoria.Nombre, ViewData["items"] as IEnumerable<SelectListItem>, new { @Name = "nombre" })
             @Html.ValidationMessageFor(Model => Model.Categoria.Nombre, "", new { @class = "text-danger" })
@@ -53,12 +52,13 @@
                     @*@Html.DisplayFor(model => model.Logo)*@
                     <img width="360" height="215" src="@Url.Action("getImage2","BEMPLEOS1", new {Id= item.Id })" title="@item.Posicion" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></img>
                     <div class="itemx-text">
-                        <h4 class="sizec">@item.Posicion - @item.IdEmpleo</h4>
+                        <h4 class="sizec">@item.Posicion | @item.IdEmpleo</h4>
                         <p>@item.Ubicacion</p>
                         <p>@item.Posicion</p>
                         <p>@item.Empresa</p>
                         <p>@item.Fechapubli</p>
-                        @Html.ActionLink("Details", "Details", new { id = item.Id })
+                        <br />
+                        @Html.ActionLink("Ver más", "Details", new { id = item.Id })
                     </div>
                 </div>
             }
