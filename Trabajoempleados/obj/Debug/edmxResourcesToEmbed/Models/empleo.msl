@@ -28,42 +28,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="CONTRATISTAS">
-      <EntityTypeMapping TypeName="bolsaempleosModel.CONTRATISTAS">
-        <MappingFragment StoreEntitySet="CONTRATISTAS">
-          <ScalarProperty Name="Id" ColumnName="Id" />
-          <ScalarProperty Name="IdContratista" ColumnName="IdContratista" />
-          <ScalarProperty Name="Rnc" ColumnName="Rnc" />
-          <ScalarProperty Name="NombreEmpresa" ColumnName="NombreEmpresa" />
-          <ScalarProperty Name="Representante" ColumnName="Representante" />
-          <ScalarProperty Name="Correo" ColumnName="Correo" />
-          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
-          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
-          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
-          <ScalarProperty Name="Urlc" ColumnName="Urlc" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="EMPLEOS">
-      <EntityTypeMapping TypeName="bolsaempleosModel.EMPLEOS">
-        <MappingFragment StoreEntitySet="EMPLEOS">
-          <ScalarProperty Name="Fechapubli" ColumnName="Fechapubli" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="caplicar" ColumnName="caplicar" />
-          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-          <ScalarProperty Name="Categoria" ColumnName="Categoria" />
-          <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
-          <ScalarProperty Name="Posicion" ColumnName="Posicion" />
-          <ScalarProperty Name="Logo" ColumnName="Logo" />
-          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
-          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
-          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
-          <ScalarProperty Name="IdEmpleo" ColumnName="IdEmpleo" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="CATEGORIA">
       <EntityTypeMapping TypeName="bolsaempleosModel.CATEGORIA">
         <MappingFragment StoreEntitySet="CATEGORIA">
@@ -85,5 +49,41 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="CONTRATISTAS">
+      <EntityTypeMapping TypeName="bolsaempleosModel.CONTRATISTAS">
+        <MappingFragment StoreEntitySet="CONTRATISTAS">
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="Contrasena" ColumnName="Contrasena" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Representante" ColumnName="Representante" />
+          <ScalarProperty Name="NombreEmpresa" ColumnName="NombreEmpresa" />
+          <ScalarProperty Name="Rnc" ColumnName="Rnc" />
+          <ScalarProperty Name="IdContratista" ColumnName="IdContratista" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLEOS">
+      <EntityTypeMapping TypeName="bolsaempleosModel.EMPLEOS">
+        <MappingFragment StoreEntitySet="EMPLEOS">
+          <ScalarProperty Name="Urlx" ColumnName="Urlx" />
+          <ScalarProperty Name="Fechapubli" ColumnName="Fechapubli" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="caplicar" ColumnName="caplicar" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+          <ScalarProperty Name="Ubicacion" ColumnName="Ubicacion" />
+          <ScalarProperty Name="Posicion" ColumnName="Posicion" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="IdEmpleo" ColumnName="IdEmpleo" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

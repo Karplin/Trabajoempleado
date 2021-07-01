@@ -44,8 +44,8 @@
                     </dd>
 
                     @**<dt class = "text-danger form-control">
-                            @Html.DisplayNameFor(model => model.Logo)
-                        </dt>*@
+            @Html.DisplayNameFor(model => model.Logo)
+        </dt>*@
 
 
 
@@ -64,6 +64,15 @@
                     <dd style=" margin-right: -182px; margin-top: 10px;">
                         @Html.DisplayFor(model => model.Ubicacion)
                     </dd>
+
+                    <dt class="text-danger form-control fichas" style="text-align:center;">
+                        @Html.DisplayName("URL")
+                    </dt>
+
+                    <dd style=" margin-right: -182px; margin-top: 10px;">
+                        @Html.DisplayFor(model => model.Urlx)
+                    </dd>
+
 
                     <dt class="text-danger form-control fichas" style="text-align:center;">
                         @Html.DisplayNameFor(model => model.Categoria)

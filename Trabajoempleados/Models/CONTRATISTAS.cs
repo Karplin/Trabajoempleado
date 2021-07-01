@@ -23,7 +23,6 @@ namespace Trabajoempleados.Models
         public string Telefono { get; set; }
         public string Contrasena { get; set; }
         public string Direccion { get; set; }
-        public string Urlc { get; set; }
         public string Descripcion { get; set; }
     }
 }

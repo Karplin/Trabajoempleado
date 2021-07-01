@@ -27,5 +27,6 @@ namespace Trabajoempleados.Models
         public string caplicar { get; set; }
         public string Email { get; set; }
         public string Fechapubli { get; set; }
+        public string Urlx { get; set; }
     }
 }

@@ -25,6 +25,32 @@
     <Property Name="Contrasena" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="fechanacimiento" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
   </EntityType>
+  <EntityContainer Name="bolsaempleosEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ADMINISTRADORES" EntityType="Self.ADMINISTRADORES" />
+    <EntitySet Name="CANDIDATOS" EntityType="Self.CANDIDATOS" />
+    <EntitySet Name="CATEGORIA" EntityType="bolsaempleosModel.CATEGORIA" />
+    <FunctionImport Name="busca_categoria" ReturnType="Collection(bolsaempleosModel.busca_categoria_Result)">
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="CONTRATISTAS" EntityType="bolsaempleosModel.CONTRATISTAS" />
+    <EntitySet Name="EMPLEOS" EntityType="bolsaempleosModel.EMPLEOS" />
+  </EntityContainer>
+  <EntityType Name="CATEGORIA">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="busca_categoria_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="IdEmpleo" Nullable="true" MaxLength="30" />
+    <Property Type="Binary" Name="Logo" Nullable="true" />
+    <Property Type="String" Name="Posicion" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Ubicacion" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Empresa" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Fechapubli" Nullable="true" MaxLength="30" />
+  </ComplexType>
   <EntityType Name="CONTRATISTAS">
     <Key>
       <PropertyRef Name="Id" />
@@ -38,19 +64,8 @@
     <Property Name="Telefono" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="Contrasena" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="Direccion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-    <Property Name="Urlc" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityContainer Name="bolsaempleosEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="ADMINISTRADORES" EntityType="Self.ADMINISTRADORES" />
-    <EntitySet Name="CANDIDATOS" EntityType="Self.CANDIDATOS" />
-    <EntitySet Name="CONTRATISTAS" EntityType="Self.CONTRATISTAS" />
-    <EntitySet Name="EMPLEOS" EntityType="bolsaempleosModel.EMPLEOS" />
-    <EntitySet Name="CATEGORIA" EntityType="bolsaempleosModel.CATEGORIA" />
-    <FunctionImport Name="busca_categoria" ReturnType="Collection(bolsaempleosModel.busca_categoria_Result)">
-      <Parameter Name="Nombre" Mode="In" Type="String" />
-    </FunctionImport>
-  </EntityContainer>
   <EntityType Name="EMPLEOS">
     <Key>
       <PropertyRef Name="Id" />
@@ -68,21 +83,6 @@
     <Property Name="caplicar" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="Fechapubli" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Urlx" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
   </EntityType>
-  <EntityType Name="CATEGORIA">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-  </EntityType>
-  <ComplexType Name="busca_categoria_Result">
-    <Property Type="Int32" Name="Id" Nullable="false" />
-    <Property Type="String" Name="IdEmpleo" Nullable="true" MaxLength="30" />
-    <Property Type="Binary" Name="Logo" Nullable="true" />
-    <Property Type="String" Name="Posicion" Nullable="true" MaxLength="30" />
-    <Property Type="String" Name="Ubicacion" Nullable="true" MaxLength="30" />
-    <Property Type="String" Name="Empresa" Nullable="true" MaxLength="30" />
-    <Property Type="String" Name="Fechapubli" Nullable="true" MaxLength="30" />
-  </ComplexType>
 </Schema>

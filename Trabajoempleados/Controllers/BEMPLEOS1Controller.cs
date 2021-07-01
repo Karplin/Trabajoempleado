@@ -175,7 +175,7 @@ namespace Trabajoempleados.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(EMPLEOS emple, [Bind(Include = "Id,IdEmpleo,IdEmpresa,Empresa,Tipo,Logo,Posicion,Ubicacion,Categoria,Descripcion,caplicar,Email,Fechapubli")] EMPLEOS eMPLEOS)
+        public ActionResult Create(EMPLEOS emple, [Bind(Include = "Id,IdEmpleo,IdEmpresa,Empresa,Tipo,Logo,Posicion,Ubicacion,Categoria,Descripcion,caplicar,Email,Fechapubli,Urlx")] EMPLEOS eMPLEOS)
         {
             ViewData["items"] = ListarCategoria();
             ViewData["itemsx"] = ListarTipo();
@@ -265,7 +265,7 @@ namespace Trabajoempleados.Controllers
             {
                 db.EMPLEOS.Add(eMPLEOS);
                 db.SaveChanges();
-                return RedirectToAction("Ver");
+                return RedirectToAction("Vercontratista");
             }
 
             return View(eMPLEOS);
@@ -291,7 +291,7 @@ namespace Trabajoempleados.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,IdEmpleo,IdEmpresa,Empresa,Tipo,Logo,Posicion,Ubicacion,Categoria,Descripcion,caplicar,Email,Fechapubli")] EMPLEOS eMPLEOS)
+        public ActionResult Edit([Bind(Include = "Id,IdEmpleo,IdEmpresa,Empresa,Tipo,Logo,Posicion,Ubicacion,Categoria,Descripcion,caplicar,Email,Fechapubli,Urlx")] EMPLEOS eMPLEOS)
         {
             byte[] imagenactual = null;
 
@@ -312,7 +312,7 @@ namespace Trabajoempleados.Controllers
             {
                 db.Entry(eMPLEOS).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Ver");
+                return RedirectToAction("Veradmin");
             }
             return View(eMPLEOS);
         }
@@ -342,7 +342,7 @@ namespace Trabajoempleados.Controllers
             EMPLEOS eMPLEOS = db.EMPLEOS.Find(id);
             db.EMPLEOS.Remove(eMPLEOS);
             db.SaveChanges();
-            return RedirectToAction("Ver");
+            return RedirectToAction("Veradmin");
         }
 
         protected override void Dispose(bool disposing)

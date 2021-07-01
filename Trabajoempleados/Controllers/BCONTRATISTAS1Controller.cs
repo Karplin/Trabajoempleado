@@ -48,7 +48,7 @@ namespace Trabajoempleados.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CONTRATISTAS contra, [Bind(Include = "Id,IdContratista,Rnc,NombreEmpresa,Representante,Correo,Telefono,Contrasena,Direccion,Urlc,Descripcion")] CONTRATISTAS cONTRATISTAS)
+        public ActionResult Create(CONTRATISTAS contra, [Bind(Include = "Id,IdContratista,Rnc,NombreEmpresa,Representante,Correo,Telefono,Contrasena,Direccion,Descripcion")] CONTRATISTAS cONTRATISTAS)
         {
             var code = string.Empty;
             var code2 = string.Empty;
@@ -138,7 +138,7 @@ namespace Trabajoempleados.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,IdContratista,Rnc,NombreEmpresa,Representante,Correo,Telefono,Contrasena,Direccion,Urlc,Descripcion")] CONTRATISTAS cONTRATISTAS)
+        public ActionResult Edit([Bind(Include = "Id,IdContratista,Rnc,NombreEmpresa,Representante,Correo,Telefono,Contrasena,Direccion,Descripcion")] CONTRATISTAS cONTRATISTAS)
         {
             if (ModelState.IsValid)
             {
@@ -172,7 +172,7 @@ namespace Trabajoempleados.Controllers
             CONTRATISTAS cONTRATISTAS = db.CONTRATISTAS.Find(id);
             db.CONTRATISTAS.Remove(cONTRATISTAS);
             db.SaveChanges();
-            return RedirectToAction("Ver", "BEMPLEOS1");
+            return RedirectToAction("Vercontratista", "BEMPLEOS1");
         }
 
         protected override void Dispose(bool disposing)

@@ -45,7 +45,6 @@
     <Property Name="Telefono" Type="varchar" MaxLength="30" />
     <Property Name="Contrasena" Type="varchar" MaxLength="30" />
     <Property Name="Direccion" Type="varchar" MaxLength="30" />
-    <Property Name="Urlc" Type="varchar" MaxLength="250" />
     <Property Name="Descripcion" Type="varchar" MaxLength="250" />
   </EntityType>
   <EntityType Name="EMPLEOS">
@@ -65,6 +64,7 @@
     <Property Name="caplicar" Type="varchar" MaxLength="30" />
     <Property Name="Email" Type="varchar" MaxLength="30" />
     <Property Name="Fechapubli" Type="varchar" MaxLength="30" />
+    <Property Name="Urlx" Type="varchar" MaxLength="250" />
   </EntityType>
   <Function Name="busca_categoria" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Nombre" Type="varchar" Mode="In" />
