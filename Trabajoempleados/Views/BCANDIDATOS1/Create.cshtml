@@ -60,7 +60,7 @@
             <div class="form-group">
                 @Html.Label("Correo", htmlAttributes: new { @class = "control-label col-lg-3" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @class = "form-control " } })
+                    @Html.EditorFor(model => model.Correo, new { htmlAttributes = new { @class = "form-control ", type = "email" } })
                     @Html.ValidationMessageFor(model => model.Correo, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -68,7 +68,7 @@
             <div class="form-group">
                 @Html.Label("Contraseña", htmlAttributes: new { @class = "control-label col-lg-3" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Contrasena, new { htmlAttributes = new { @class = "form-control " } })
+                    @Html.EditorFor(model => model.Contrasena, new { htmlAttributes = new { @class = "form-control ", type = "password" } })
                     @Html.ValidationMessageFor(model => model.Contrasena, "", new { @class = "text-danger" })
                 </div>
             </div>

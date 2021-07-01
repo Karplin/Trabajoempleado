@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layoutneutro.cshtml";
 }
 
 
@@ -17,12 +18,12 @@
         <hr />
 
         @*<div class="form-group">
-            @Html.LabelFor(model => model.IdEmpleo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.IdEmpleo, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.IdEmpleo, "", new { @class = "text-danger" })
-            </div>
-            </div>*@
+        @Html.LabelFor(model => model.IdEmpleo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.IdEmpleo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.IdEmpleo, "", new { @class = "text-danger" })
+        </div>
+        </div>*@
 
         <div class="form-group" style=" margin-top: -12px;">
             @Html.Label("ID Empresa", htmlAttributes: new { @class = "form-label ", @style = " margin-left: 17px" })
@@ -50,18 +51,18 @@
         </div>
 
         @*<div class="form-group">
-            @Html.LabelFor(model => model.Tipo, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Tipo, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Tipo, "", new { @class = "text-danger" })
-            </div>
-            </div>*@
+        @Html.LabelFor(model => model.Tipo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Tipo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Tipo, "", new { @class = "text-danger" })
+        </div>
+        </div>*@
 
         <div class="form-group" style=" margin-top: -12px;">
             @Html.LabelFor(model => model.Logo, htmlAttributes: new { @class = "control-label col-lg-3 ", @style = "text-align:left" })
             <div class="col-md-10">
                 @*@Html.EditorFor(model => model.Logo, new { htmlAttributes = new { @class = "form-control" } })*@
-                <input type="file" name="imageload" src="~/img/prueba.jpg"/>
+                <input type="file" name="imageload" src="~/img/prueba.jpg" />
                 @Html.ValidationMessageFor(model => model.Logo, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -92,20 +93,13 @@
         </div>
 
         @*<div class="form-group">
-            @Html.Label("Categoria", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Categoria, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Categoria, "", new { @class = "text-danger" })
-            </div>
-            </div>*@
-
-        <div class="form-group" style=" margin-top: -12px;">
-            @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-lg-3" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
-            </div>
+        @Html.Label("Categoria", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Categoria, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Categoria, "", new { @class = "text-danger" })
         </div>
+        </div>*@
+
 
         <div class="form-group" style=" margin-top: -12px;">
             @Html.LabelFor(model => model.caplicar, htmlAttributes: new { @class = "control-label col-lg-3" })
@@ -118,19 +112,26 @@
         <div class="form-group" style=" margin-top: -12px;">
             @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-lg-3" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", type = "email"} })
                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div>
         </div>
 
         @*<div class="form-group">
-            @Html.LabelFor(model => model.Fechapubli, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Fechapubli, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Fechapubli, "", new { @class = "text-danger" })
-            </div>
-            </div>*@
+        @Html.LabelFor(model => model.Fechapubli, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Fechapubli, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Fechapubli, "", new { @class = "text-danger" })
+        </div>
+        </div>*@
 
+        <div class="form-group" style=" margin-top: -12px;">
+            @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label col-lg-3" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Descripcion, new { htmlAttributes = new { @class = "form-control", maxlenght = "250" } })
+                @Html.ValidationMessageFor(model => model.Descripcion, "", new { @class = "text-danger" })
+            </div>
+        </div>
         <div class="form-group" style=" margin-top: -12px;">
             <div class="col-md-offset-2 col-md-10" style="margin-left: 72px; margin-top: 10px;">
                 <input type="submit" value="Publicar Vacante" class="btn btn-default" />

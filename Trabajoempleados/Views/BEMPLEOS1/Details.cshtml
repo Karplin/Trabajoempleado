@@ -2,128 +2,122 @@
 
 @{
     ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout-2.cshtml";
 }
 
 
 
-<div>
-
-    <h4 style="position: absolute;left: 56%;bottom: 77%;font-size: 33px;">Ficha Tecnica</h4>
-
-    <hr />
+<form>
     <dl class="dl-horizontal">
 
-        <div class="center-pageE">
-            <dt class="text-danger form-control fichas" style="text-align:center;">
-                @Html.DisplayName("Codigo Empleo")
-            </dt>
+        <div>
+            <h4 style="position: absolute;left: 45%;bottom: 75%;font-size: 33px;">Ficha Técnica</h4>
 
-            <dd class="fichas">
-                @Html.DisplayFor(model => model.IdEmpleo)
-            </dd>
+            <hr />
+            <dl class="dl-horizontal">
 
-            <dt class="text-danger form-control fichas" style="text-align:center;">
-                @Html.DisplayName("Codigo Empresa")
-            </dt>
+                <div class="center-pageE">
+                    <dt class="text-danger form-control fichas" style="text-align:center;">
+                        @Html.DisplayName("Código de empleo")
+                    </dt>
 
-            <dd class="fichas">
-                @Html.DisplayFor(model => model.IdEmpresa)
-            </dd>
-
-            <dt class="text-danger form-control fichas" style="text-align:center;">
-                @Html.DisplayNameFor(model => model.Empresa)
-            </dt>
-
-            <dd class="fichas">
-                @Html.DisplayFor(model => model.Empresa)
-            </dd>
-
-            <dt class="text-danger form-control fichas" style="text-align:center;">
-                @Html.DisplayNameFor(model => model.Tipo)
-            </dt>
-
-            <dd class="fichas">
-                @Html.DisplayFor(model => model.Tipo)
-            </dd>
-
-            @**<dt class = "text-danger form-control">
-
-                    @Html.DisplayNameFor(model => model.Logo)
-                </dt>*@
+                    <dd style=" margin-right: -182px; margin-top: 10px;">
+                        @Html.DisplayFor(model => model.IdEmpleo)
+                    </dd>
 
 
 
-            <dt class="text-danger form-control fichas" style="text-align:center;">
-                @Html.DisplayName("Posición")
-            </dt>
+                    <dt class="text-danger form-control fichas" style="text-align:center;">
+                        @Html.DisplayNameFor(model => model.Empresa)
+                    </dt>
 
-            <dd class="fichas">
-                @Html.DisplayFor(model => model.Posicion)
-            </dd>
+                    <dd style=" margin-right: -182px; margin-top: 10px;">
+                        @Html.DisplayFor(model => model.Empresa)
+                    </dd>
 
-            <dt class="text-danger form-control fichas" style="text-align:center;">
-                @Html.DisplayName("Ubicación")
-            </dt>
+                    <dt class="text-danger form-control fichas" style="text-align:center;">
+                        @Html.DisplayNameFor(model => model.Tipo)
+                    </dt>
 
-            <dd class="fichas">
-                @Html.DisplayFor(model => model.Ubicacion)
-            </dd>
+                    <dd style=" margin-right: -182px; margin-top: 10px;">
+                        @Html.DisplayFor(model => model.Tipo)
+                    </dd>
 
-            <dt class="text-danger form-control fichas" style="text-align:center;">
-                @Html.DisplayName("Categoría")
-            </dt>
+                    @**<dt class = "text-danger form-control">
+                            @Html.DisplayNameFor(model => model.Logo)
+                        </dt>*@
 
-            <dd class="fichas">
-                @Html.DisplayFor(model => model.Categoria)
-            </dd>
 
-            <dt class="text-danger form-control fichas" style="text-align:center;">
-                @Html.DisplayName("¿Cómo aplicar?")
-            </dt>
 
-            <dd class="fichas">
-                @Html.DisplayFor(model => model.caplicar)
-            </dd>
+                    <dt class="text-danger form-control fichas" style="text-align:center;">
+                        @Html.DisplayName("Posición")
+                    </dt>
 
-            <dt class="text-danger form-control fichas" style="text-align:center;">
-                @Html.DisplayName("Correo Electrónico")
-            </dt>
+                    <dd style=" margin-right: -182px; margin-top: 10px;">
+                        @Html.DisplayFor(model => model.Posicion)
+                    </dd>
 
-            <dd class="fichas">
-                @Html.DisplayFor(model => model.Email)
-            </dd>
+                    <dt class="text-danger form-control fichas" style="text-align:center;">
+                        @Html.DisplayName("Ubicación")
+                    </dt>
 
-            <dt class="text-danger form-control fichas" style="text-align:center;">
-                @Html.DisplayName("Fecha")
-            </dt>
+                    <dd style=" margin-right: -182px; margin-top: 10px;">
+                        @Html.DisplayFor(model => model.Ubicacion)
+                    </dd>
 
-            <dd class="fichas">
-                @Html.DisplayFor(model => model.Fechapubli)
-            </dd>
+                    <dt class="text-danger form-control fichas" style="text-align:center;">
+                        @Html.DisplayNameFor(model => model.Categoria)
+                    </dt>
 
-            <dt class="text-danger form-control fichas" style="text-align:center;">
-                @Html.DisplayName("Descripción")
-            </dt>
+                    <dd style=" margin-right: -182px; margin-top: 10px;">
+                        @Html.DisplayFor(model => model.Categoria)
+                    </dd>
 
-            <dd style=" margin-right: -182px; margin-top: 10px;">
-                @Html.DisplayFor(model => model.Descripcion)
-            </dd>
+                    <dt class="text-danger form-control fichas" style="text-align:center;">
+                        @Html.DisplayName("Cómo aplicar")
+                    </dt>
 
+                    <dd style=" margin-right: -182px; margin-top: 10px;">
+                        @Html.DisplayFor(model => model.caplicar)
+                    </dd>
+
+                    <dt class="text-danger form-control fichas" style="text-align:center;">
+                        @Html.DisplayName("Correo")
+                    </dt>
+
+                    <dd style=" margin-right: -182px; margin-top: 10px;">
+                        @Html.DisplayFor(model => model.Email)
+                    </dd>
+
+                    <dt class="text-danger form-control fichas" style="text-align:center;">
+                        @Html.DisplayName("Fecha")
+                    </dt>
+
+                    <dd style=" margin-right: -182px; margin-top: 10px;">
+                        @Html.DisplayFor(model => model.Fechapubli)
+                    </dd>
+
+                    <dt class="text-danger form-control fichas" style="text-align:center;">
+                        @Html.DisplayName("Descripción")
+                    </dt>
+
+                    <dd style=" margin-right: -182px; margin-top: 10px;">
+                        @Html.DisplayFor(model => model.Descripcion)
+                    </dd>
+
+                </div>
+
+                <dd>
+                    <div>
+                        <img class="imagenes img-rounded" style="width: 400px; margin-top: 140px;" src="@Url.Action("getImage","BEMPLEOS1", new {id=Model.Id})" />
+                        @*@Html.DisplayFor(model => model.Logo)*@
+                    </div>
+
+                </dd>
+            </dl>
         </div>
-
-        <dd>
-
-
-        </dd>
-
-
     </dl>
-
-    <div class="left-page">
-        <span><img class="avatar" ; style="width:200px" src="@Url.Action("getImage","BEMPLEOS1", new {id=Model.Id})" /></span>
-        @*@Html.DisplayFor(model => model.Logo)*@
-    </div>
-</div>
+</form>
 @*<p>
         @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
         @Html.ActionLink("Back to List", "Ver", "BEMPLEOS1")
