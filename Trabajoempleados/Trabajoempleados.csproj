@@ -375,9 +375,10 @@
     <Content Include="Views\Shared\_Layoutneutro.cshtml" />
     <Content Include="Views\BEMPLEOS1\Detailscontra.cshtml" />
     <Content Include="Views\BEMPLEOS1\Detailsadmin.cshtml" />
-    <Content Include="Views\Shared\_Layoutcontra2.cshtml" />
+    <Content Include="Views\Shared\_Layoutcreate.cshtml" />
     <Content Include="Views\Shared\_Layout4-2.cshtml" />
     <Content Include="Views\Shared\_Layout-2.cshtml" />
+    <Content Include="Views\Shared\_Layoutcontra2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

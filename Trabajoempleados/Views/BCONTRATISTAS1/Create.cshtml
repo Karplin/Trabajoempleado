@@ -1,9 +1,9 @@
 ﻿@model Trabajoempleados.Models.CONTRATISTAS
 
-    @{
-        ViewBag.Title = "Registro";
-        Layout = "~/Views/Shared/_Layoutneutro.cshtml";
-    }
+@{
+    ViewBag.Title = "Registro";
+    Layout = "~/Views/Shared/_Layoutneutro.cshtml";
+}
 
 
 
@@ -24,11 +24,10 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4 class="text-left" style="font-size: 29px; margin:23px">Registrarse</h4>
-        <hr />
+
 
         <div class="center-pageCreate2">
-            <hr />
+
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             @*<div class="form-group">
                     @Html.LabelFor(model => model.IdContratista, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -111,7 +110,6 @@
 
     </div>
 }
-
 
 
 @section Scripts {

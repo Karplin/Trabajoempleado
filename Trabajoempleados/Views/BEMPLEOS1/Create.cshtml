@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Create";
-    Layout = "~/Views/Shared/_Layoutneutro.cshtml";
+    Layout = "~/Views/Shared/_Layoutcreate.cshtml";
 }
 
 
@@ -46,7 +46,7 @@
             <div class="form-group" style=" margin-top: -12px;">
                 @Html.Label("URL", htmlAttributes: new { @class = "control-label col-lg-3", style = " margin-left: -25px" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.Urlx, new { htmlAttributes = new { @class = "form-control" , placeholder= "Campo opcional"} })
+                    @Html.EditorFor(model => model.Urlx, new { htmlAttributes = new { @class = "form-control" , placeholder= ""} })
                     @Html.ValidationMessageFor(model => model.Urlx, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -145,25 +145,9 @@
     </div>
 
 
+  
 
-
-    <div class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    @Html.ActionLink("Empleos", "vercontratista", "BEMPLEOS1", new { area = "" }, new { @class = "navbar-brand" })
-                </ul>
-            </div>
-        </div>
-    </div>
+ 
 
 }
 

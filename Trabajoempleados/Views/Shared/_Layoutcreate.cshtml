@@ -13,10 +13,6 @@
     <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
     <link href="~/Content/fondo.css" rel="stylesheet" />
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
     @RenderSection("styles", required: false)
 </head>
 <body>
@@ -29,12 +25,11 @@
                     <span class="icon-bar"></span>
                 </button>
                 <p style="margin-top:15px; color:dimgrey"> Bolsa empleos</p>
-
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("Iniciar Sesion", "Login", "Login", new { area = "" }, null)</li>
-
+                    @Html.ActionLink("Empleos", "vercontratista", "BEMPLEOS1", new { area = "" }, new { @class = "navbar-brand" })
+                    <li style="background-color: deepskyblue"></li>
                 </ul>
             </div>
         </div>
@@ -43,7 +38,7 @@
         @RenderBody()
         <hr />
         <footer class="fotter-butom">
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+          
         </footer>
     </div>
 
