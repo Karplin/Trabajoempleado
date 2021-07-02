@@ -11,6 +11,7 @@ namespace Trabajoempleados.Models
     {
         public List<EMPLEOS> Empleos {get; set;}
         public CATEGORIA Categoria { get; set; }
+        public int idcontracheck { get; set; }
     }
 
 

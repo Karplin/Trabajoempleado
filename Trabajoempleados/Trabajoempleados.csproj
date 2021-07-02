@@ -344,7 +344,7 @@
     <Content Include="Views\BCONTRATISTAS1\Create.cshtml" />
     <Content Include="Views\BCONTRATISTAS1\Delete.cshtml" />
     <Content Include="Views\BCONTRATISTAS1\Details.cshtml" />
-    <Content Include="Views\BCONTRATISTAS1\Edit.cshtml" />
+    <Content Include="Views\BEMPLEOS1\EditContra.cshtml" />
     <Content Include="Views\BCONTRATISTAS1\Index.cshtml" />
     <Content Include="Views\BEMPLEOS1\Create.cshtml" />
     <Content Include="Views\BEMPLEOS1\Delete.cshtml" />

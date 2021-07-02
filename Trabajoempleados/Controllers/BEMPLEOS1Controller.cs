@@ -453,20 +453,27 @@ namespace Trabajoempleados.Controllers
         {
             return View(db.EMPLEOS.ToList());
         }
-
-
-
+        
 
         // CONTRATISTA ----------------------------------
-        public ActionResult Vercontratista(int pagina = 1)
+        public ActionResult Vercontratista(int idcontra = 1, int pagina = 1)
         {
-            ViewData["items"] = ListarCategoria();
-
+            
             combinados model = new combinados
             {
                 Empleos = db.EMPLEOS.ToList(),
                 Categoria = new CATEGORIA()
             };
+            model.idcontracheck = 1;
+            if (idcontra == 1)
+            {
+                model.idcontracheck = model.idcontracheck;
+            }
+            else
+            {
+                model.idcontracheck = idcontra;
+            }
+            ViewData["items"] = ListarCategoria();
 
             var cantidadRegistrosPorPagina = 9; // parámetro
             using (var db = new bolsaempleosEntities())
@@ -499,6 +506,35 @@ namespace Trabajoempleados.Controllers
             return View(db.EMPLEOS.ToList());
         }
 
+        public ActionResult EditContra(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            CONTRATISTAS cONTRATISTAS = db.CONTRATISTAS.Find(id);
+            if (cONTRATISTAS == null)
+            {
+                return HttpNotFound();
+            }
+            return View(cONTRATISTAS);
+        }
+
+        // POST: BCONTRATISTAS1/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "Id,IdContratista,Rnc,NombreEmpresa,Representante,Correo,Telefono,Contrasena,Direccion,Descripcion")] CONTRATISTAS cONTRATISTAS)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(cONTRATISTAS).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Ver", "BEMPLEOS1");
+            }
+            return View(cONTRATISTAS);
+        }
 
 
 
