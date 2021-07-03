@@ -21,10 +21,13 @@ namespace Trabajoempleados.Controllers
 
         filtros ola = new filtros();
 
+        
+
         private bolsaempleosEntities db = new bolsaempleosEntities();
 
+        #region  Ver e Indexe
         // GET: BEMPLEOS1
-        public ActionResult Ver(int pagina = 1)
+        public ActionResult Ver(int idcontracheck = 1, int pagina = 1)
         {
             ViewData["items"] = ListarCategoria();
 
@@ -33,6 +36,15 @@ namespace Trabajoempleados.Controllers
                 Empleos = db.EMPLEOS.ToList(),
                 Categoria = new CATEGORIA()
             };
+
+            if (idcontracheck == 1)
+            {
+                model.idcontracheck = model.idcontracheck;
+            }
+            else
+            {
+                model.idcontracheck = idcontracheck;
+            }
 
             var cantidadRegistrosPorPagina = 9; // parámetro
             using (var db = new bolsaempleosEntities())
@@ -56,11 +68,15 @@ namespace Trabajoempleados.Controllers
         [HttpPost]
         public ActionResult Indexe(string nombre)
         {
+
             return View(Buscarcategoria(nombre));
         }
+        #endregion
+
 
         public List<busca_categoria_Result> Buscarcategoria(string nombre)
         {
+
             return db.busca_categoria(nombre).ToList();
         }
 
@@ -408,7 +424,7 @@ namespace Trabajoempleados.Controllers
 
 
         // ADMINISTRADOR ----------------------------------
-        public ActionResult Veradmin(int pagina = 1)
+        public ActionResult Veradmin(int idcontracheck = 1, int pagina = 1)
         {
             ViewData["items"] = ListarCategoria();
 
@@ -417,7 +433,14 @@ namespace Trabajoempleados.Controllers
                 Empleos = db.EMPLEOS.ToList(),
                 Categoria = new CATEGORIA()
             };
-
+            if (idcontracheck == 1)
+            {
+                model.idcontracheck = model.idcontracheck;
+            }
+            else
+            {
+                model.idcontracheck = idcontracheck;
+            }
             var cantidadRegistrosPorPagina = 9; // parámetro
             using (var db = new bolsaempleosEntities())
             {
@@ -456,7 +479,7 @@ namespace Trabajoempleados.Controllers
         
 
         // CONTRATISTA ----------------------------------
-        public ActionResult Vercontratista(int idcontra = 1, int pagina = 1)
+        public ActionResult Vercontratista(int idcontracheck = 1, int pagina = 1)
         {
             
             combinados model = new combinados
@@ -464,14 +487,14 @@ namespace Trabajoempleados.Controllers
                 Empleos = db.EMPLEOS.ToList(),
                 Categoria = new CATEGORIA()
             };
-            model.idcontracheck = 1;
-            if (idcontra == 1)
+
+            if (idcontracheck == 1)
             {
                 model.idcontracheck = model.idcontracheck;
             }
             else
             {
-                model.idcontracheck = idcontra;
+                model.idcontracheck = idcontracheck;
             }
             ViewData["items"] = ListarCategoria();
 
@@ -525,18 +548,76 @@ namespace Trabajoempleados.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,IdContratista,Rnc,NombreEmpresa,Representante,Correo,Telefono,Contrasena,Direccion,Descripcion")] CONTRATISTAS cONTRATISTAS)
+        public ActionResult EditContra([Bind(Include = "Id,IdContratista,Rnc,NombreEmpresa,Representante,Correo,Telefono,Contrasena,Direccion,Descripcion")] CONTRATISTAS cONTRATISTAS)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(cONTRATISTAS).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Ver", "BEMPLEOS1");
+                return View(cONTRATISTAS);
             }
             return View(cONTRATISTAS);
         }
 
+        public ActionResult EditAdmin(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            ADMINISTRADORES aDMINISTRADORES = db.ADMINISTRADORES.Find(id);
+            if (aDMINISTRADORES == null)
+            {
+                return HttpNotFound();
+            }
+            return View(aDMINISTRADORES);
+        }
 
+        // POST: BADMINISTRADORES1/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditAdmin([Bind(Include = "IdAdmin,Cedula,Nombre,Apellido,Correo,Contrasena,fechanacimiento")] ADMINISTRADORES aDMINISTRADORES)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(aDMINISTRADORES).State = EntityState.Modified;
+                db.SaveChanges();
+                return View(aDMINISTRADORES);
+            }
+            return View(aDMINISTRADORES);
+        }
+
+        public ActionResult EditCand(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            CANDIDATOS cANDIDATOS = db.CANDIDATOS.Find(id);
+            if (cANDIDATOS == null)
+            {
+                return HttpNotFound();
+            }
+            return View(cANDIDATOS);
+        }
+
+        // POST: BCANDIDATOS1/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditCand([Bind(Include = "IdCandidato,Cedula,Nombre,Apellido,Correo,Telefono,Contrasena,fechanacimiento")] CANDIDATOS cANDIDATOS)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(cANDIDATOS).State = EntityState.Modified;
+                db.SaveChanges();
+                return View(cANDIDATOS);
+            }
+            return View(cANDIDATOS);
+        }
 
     }
 }

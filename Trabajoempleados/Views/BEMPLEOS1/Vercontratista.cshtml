@@ -24,16 +24,16 @@
         <section style="margin-left:5%" class="py-5 text-center container">
         </section>
 
-  
-        
+
+
         <hr />
         <hr />
         <h2>Buscar por Categoria</h2>
-        
+
+
 
 
         <form action="Indexecontratista" method="post">
-            
 
             @Html.DropDownListFor(Model => Model.Categoria.Nombre, ViewData["items"] as IEnumerable<SelectListItem>, new { @Name = "nombre" })
             @Html.ValidationMessageFor(Model => Model.Categoria.Nombre, "", new { @class = "text-danger" })
@@ -95,20 +95,20 @@
     <ul class="pagination">
        @if (Model.PaginaActual == 1)
         {
-          <li class="disabled">@Html.ActionLink("Anterior", null, new { pagina = 1})</li> 
+          <li class="disabled">@Html.ActionLink("Anterior", null, new { idcontracheck = Model.idcontracheck, pagina = 1})</li> 
         }
         else
         {
-          <li>@Html.ActionLink("Anterior", null, new { pagina = Model.PaginaActual - 1})</li>
+          <li>@Html.ActionLink("Anterior", null, new { idcontracheck = Model.idcontracheck, pagina = Model.PaginaActual - 1})</li>
         }
 
         @if (Model.PaginaActual == cantidadPaginas)
         {
-          <li class="disabled">@Html.ActionLink("Siguiente", null, new { pagina = cantidadPaginas})</li> 
+          <li class="disabled">@Html.ActionLink("Siguiente", null, new { idcontracheck = Model.idcontracheck, pagina = cantidadPaginas})</li> 
         }
         else
         {
-          <li>@Html.ActionLink("Siguiente", null, new {pagina = Model.PaginaActual + 1})</li>
+          <li>@Html.ActionLink("Siguiente", null, new { idcontracheck = Model.idcontracheck, pagina = Model.PaginaActual + 1})</li>
         }
     </ul>
 

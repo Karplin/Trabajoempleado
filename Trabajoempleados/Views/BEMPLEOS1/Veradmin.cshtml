@@ -102,22 +102,22 @@
     <ul class="pagination">
         @if (Model.PaginaActual == 1)
         {
-            <li class="disabled">@Html.ActionLink("Anterior", null, new { pagina = 1 })</li>
+            <li class="disabled">@Html.ActionLink("Anterior", null, new { idcontracheck = Model.idcontracheck, pagina = 1 })</li>
 
         }
         else
         {
-            <li>@Html.ActionLink("Anterior", null, new { pagina = Model.PaginaActual - 1 })</li>
+            <li>@Html.ActionLink("Anterior", null, new { idcontracheck = Model.idcontracheck, pagina = Model.PaginaActual - 1 })</li>
         }
 
         @if (Model.PaginaActual == cantidadPaginas)
         {
-            <li class="disabled">@Html.ActionLink("Siguiente", null, new { pagina = cantidadPaginas })</li>
+            <li class="disabled">@Html.ActionLink("Siguiente", null, new { idcontracheck = Model.idcontracheck, pagina = cantidadPaginas })</li>
 
         }
         else
         {
-            <li>@Html.ActionLink("Siguiente", null, new { pagina = Model.PaginaActual + 1 })</li>
+            <li>@Html.ActionLink("Siguiente", null, new { idcontracheck = Model.idcontracheck, pagina = Model.PaginaActual + 1 })</li>
         }
     </ul>
 

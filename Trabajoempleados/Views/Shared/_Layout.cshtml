@@ -31,6 +31,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Editar perfil", "EditCand", new { Id = Model.idcontracheck })</li>
                     <li>@Html.ActionLink("Empleos", "Ver", "BEMPLEOS1", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Refinar Búsqueda", "Verconfiltro", "BEMPLEOS1", new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Cerrar Sesión", "Login", "Login", new { area = "" }, null)</li>

@@ -11,7 +11,7 @@ namespace Trabajoempleados.Models
 {
     using System;
     
-    public partial class busca_categoria_Result
+    public partial class busca_categoria_Result : combinados
     {
         public int Id { get; set; }
         public string IdEmpleo { get; set; }
