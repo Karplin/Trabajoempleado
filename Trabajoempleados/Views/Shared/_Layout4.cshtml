@@ -35,16 +35,21 @@
 
                     </li>
 
-                    <li class="nav-item" style="margin-right:400px; ">
+                    <li class="nav-item">
                         <a class="nav-link" href="javascript: history.go(-1)">Volver.</a>
                     </li>
                     <li class="nav-item" style="margin-top:-15px;   ">
-                        <a class="nav-link">@Html.ActionLink("Editar Perfil.", "EditAdmin", new { Id = Model.idcontracheck}, new { @class = "nav-link" })</a>
+                        <a class="nav-link">@Html.ActionLink("Editar Perfil.", "EditAdmin", new { Id = Model.idcontracheck }, new { @class = "nav-link" })</a>
                     </li>
 
                     <li class="nav-item" style="margin-top:-15px;">
                         <a class="nav-link">@Html.ActionLink("Refinar Búsqueda.", "Verconfiltroadmin", "BEMPLEOS1", new { area = "" }, new { @class = "nav-link" })</a>
                     </li>
+
+                    <li class="nav-item" style="margin-top:-15px;">
+                        <a class="nav-link">@Html.ActionLink("Dividir Categoria.", "Veradminx", "BEMPLEOS1", new { area = "" }, new { @class = "nav-link" })</a>
+                    </li>
+
                     <li class="nav-item" style="margin-top:-15px;">
                         <a class="nav-link">@Html.ActionLink("Modificar Categoria.", "Index", "CATEGORIAs", new { area = "" }, new { @class = "nav-link" })</a>
                     </li>

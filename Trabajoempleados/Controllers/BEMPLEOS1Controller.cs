@@ -479,8 +479,7 @@ namespace Trabajoempleados.Controllers
 
         public ActionResult Verconfiltroadmin()
         {
-            combinados model = new combinados();
-            return View(model);
+            return View(db.EMPLEOS.ToList());
         }
         
 
@@ -665,6 +664,89 @@ namespace Trabajoempleados.Controllers
 
             return View(model);
         }
+
+
+
+        public ActionResult Vercontratistax(int idcontracheck = 1, int pagina = 1)
+        {
+
+            combinados model = new combinados
+            {
+                Empleos = db.EMPLEOS.ToList(),
+                Categoria = new CATEGORIA()
+            };
+
+            if (idcontracheck == 1)
+            {
+                model.idcontracheck = model.idcontracheck;
+            }
+            else
+            {
+                model.idcontracheck = idcontracheck;
+            }
+            ViewData["items"] = ListarCategoria();
+
+            var cantidadRegistrosPorPagina = 9; // parámetro
+            using (var db = new bolsaempleosEntities())
+            {
+
+                var item = db.EMPLEOS.OrderByDescending(x => x.Id)
+                    .Skip((pagina - 1) * cantidadRegistrosPorPagina)
+                    .Take(cantidadRegistrosPorPagina).ToList();
+                var totalDeRegistros = db.EMPLEOS.Count();
+
+
+                model.Empleos = item;
+                model.PaginaActual = pagina;
+                model.TotalDeRegistros = totalDeRegistros;
+                model.RegistrosPorPagina = cantidadRegistrosPorPagina;
+            }
+
+            return View(model);
+        }
+
+        public ActionResult Verx(int idcontracheck = 1, int pagina = 1)
+        {
+            ViewData["items"] = ListarCategoria();
+
+            combinados model = new combinados
+            {
+                Empleos = db.EMPLEOS.ToList(),
+                Categoria = new CATEGORIA()
+            };
+
+            if (idcontracheck == 1)
+            {
+                model.idcontracheck = model.idcontracheck;
+            }
+            else
+            {
+                model.idcontracheck = idcontracheck;
+            }
+
+            var cantidadRegistrosPorPagina = 9; // parámetro
+            using (var db = new bolsaempleosEntities())
+            {
+
+                var item = db.EMPLEOS.OrderByDescending(x => x.Id)
+                    .Skip((pagina - 1) * cantidadRegistrosPorPagina)
+                    .Take(cantidadRegistrosPorPagina).ToList();
+                var totalDeRegistros = db.EMPLEOS.Count();
+
+
+                model.Empleos = item;
+                model.PaginaActual = pagina;
+                model.TotalDeRegistros = totalDeRegistros;
+                model.RegistrosPorPagina = cantidadRegistrosPorPagina;
+            }
+
+            return View(model);
+        }
+
+   
+
+
+
 
     }
 }

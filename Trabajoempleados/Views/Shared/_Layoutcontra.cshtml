@@ -42,12 +42,17 @@
                     </li>
 
                     <li class="nav-item" style="margin-top:-15px; ">
-                        <a class="nav-link">@Html.ActionLink("Editar Perfil.", "EditContra", new { Id = Model.idcontracheck}, new { @class = "nav-link" })</a>
+                        <a class="nav-link">@Html.ActionLink("Editar Perfil.", "EditContra", new { Id = Model.idcontracheck }, new { @class = "nav-link" })</a>
                     </li>
 
                     <li class="nav-item" style="margin-top:-15px; ">
                         <a class="nav-link">@Html.ActionLink("Refinar Búsqueda.", "Verconfiltrocontra", "BEMPLEOS1", new { area = "" }, new { @class = "nav-link" })</a>
                     </li>
+
+                    <li class="nav-item" style="margin-top:-15px; ">
+                        <a class="nav-link">@Html.ActionLink("Dividir Categoria.", "Vercontratistax", "BEMPLEOS1", new { area = "" }, new { @class = "nav-link" })</a>
+                    </li>
+
                     <li class="nav-item" style="margin-top:-15px; ">
                         <a class="nav-link">@Html.ActionLink("Postear Empleo.", "Create", "BEMPLEOS1", new { area = "" }, new { @class = "nav-link" })</a>
                     </li>
@@ -67,9 +72,7 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer class="fotter-butom">
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+     
     </div>
 
     @Scripts.Render("~/bundles/jquery")

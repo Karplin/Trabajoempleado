@@ -1,11 +1,10 @@
-﻿
-@model Trabajoempleados.Models.combinados
+﻿@model Trabajoempleados.Models.combinados
 
 
 
 @{
     ViewBag.Title = "Ver Admin";
-    Layout = "~/Views/Shared/_Layout4.cshtml";
+    Layout = "~/Views/Shared/_Layout4x.cshtml";
 
 
 }
@@ -19,19 +18,15 @@
 <link rel="stylesheet" href="~/css/reset.min.css" />
 
 <body>
+
+
     <main>
-        <a name="up"></a>
-        <section style="margin-left:5%" class="py-5 text-center container">
-        </section>
 
 
 
-        <hr />
-        <hr />
+        <h2 style="margin-left:450px; margin-top:30px;">Buscar por Categoria</h2>
 
-        <h2>Buscar por Categoria</h2>
-
-        <form action="Indexeadmin" method="post">
+        <form style="margin-left:450px;" action="Indexeadmin" method="post">
 
 
 
@@ -39,7 +34,7 @@
             @Html.ValidationMessageFor(Model => Model.Categoria.Nombre, "", new { @class = "text-danger" })
 
 
-            
+
             <input type="submit" value="Buscar" class="btn btn-success" />
         </form>
 
@@ -51,338 +46,857 @@
             <table>
                 <tr>
                     <td>
-                        <p>Educación</p>
-                        
-                        @foreach (var item in Model.Buscarcategoriax(1))
-                        {
-                          
+                        <h3 style="margin-left:10px; font-size:30px;">Educación</h3>
+                        <hr style="width:100%; margin-left:10px;" />
+                        <div class="row" style="width:1000px; margin-left:10px;">
+
+                            <form action="" class="form-register2">
+                                <table class="table" id="tableDemo">
+                                    <thead>
+                                        <tr>
+                                            <th>
+
+                                                <label style="color: black; font-style:italic; text-align: center">Id Empleo</label>
+
+                                            </th>
+                                            <th>
+
+                                                <label style="color: black; font-style:italic; text-align: center">Fecha de publicado</label>
+
+                                            </th>
+                                            <th>
+                                                <label style="color: black; font-style:italic; text-align: center">Logo</label>
+                                            </th>
+                                            <th>
+                                                <label style="color: black; font-style:italic; text-align: center">Posicion</label>
+                                            </th>
+                                            <th>
+                                                <label style="color: black; font-style:italic; text-align: center">Ubicación</label>
+                                            </th>
+
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.Buscarcategoriax(1))
+                                        {
+
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.IdEmpleo)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Fechapubli)
+                                                </td>
+                                                <td>
+                                                    <img width="100" src="@Url.Action("getImage","BEMPLEOS1", new {id = item.Id })" />
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Posicion)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Ubicacion)
+                                                </td>
 
 
-                            <div class="itemx">
-                                @*@Html.DisplayFor(model => model.Logo)*@
-                                <img width="360" height="215" src="@Url.Action("getImage2","BEMPLEOS1", new {Id= item.Id })" title="@item.Posicion" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></img>
-                                <div class="itemx-text">
-                                    <h4 class="sizec">@item.Posicion | @item.IdEmpleo</h4>
-                                    <p>@item.Ubicacion</p>
-                                    <p>@item.Posicion</p>
-                                    <p>@item.Empresa</p>
-                                    <br />
-                                    @Html.ActionLink("Modificar ", "Edit", new { id = item.Id })
-                                    @Html.ActionLink(" - Eliminar", "Delete", new { id = item.Id })
-                                    <br />
-                                    @Html.ActionLink("Ver más", "Detailsadmin", new { id = item.Id })
-                                    <p style="margin-left:280px;">@item.Fechapubli</p>
-                                </div>
-                            </div>
-                        }
+                                                <td>
+                                                    <div class="row">
+                                                        <a class="" title="Detalles" href="@Url.Action("Edit", "BEMPLEOS1", new { id = item.Id})">
+                                                            <i>• Editar</i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="row">
+                                                        <a class="" title="Detalles" href="@Url.Action("Delete", "BEMPLEOS1", new { id = item.Id})">
+                                                            <i>• Eliminar</i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="row">
+                                                        <a class="" title="Detalles" href="@Url.Action("Detailsadmin", "BEMPLEOS1", new { id = item.Id})">
+                                                            <i>• Detalles</i>
+                                                        </a>
+                                                    </div>
+
+                                                </td>
+
+
+                                            </tr>
+
+                                        }
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                        <hr style="width:100%; margin-left:10px;" />
                     </td>
                 </tr>
 
                 <tr>
                     <td>
-                        <p>Educación</p>
+                        <h3 style="margin-left:10px; font-size:30px;">Hostelería, Turismo</h3>
+                        <hr style="width:100%; margin-left:10px;" />
+                        <div class="row" style="width:1000px; margin-left:10px;">
 
-                        @foreach (var item in Model.Buscarcategoriax(2))
-                        {
-                            <div class="itemx">
-                                @*@Html.DisplayFor(model => model.Logo)*@
-                                <img width="360" height="215" src="@Url.Action("getImage2","BEMPLEOS1", new {Id= item.Id })" title="@item.Posicion" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></img>
-                                <div class="itemx-text">
-                                    <h4 class="sizec">@item.Posicion | @item.IdEmpleo</h4>
-                                    <p>@item.Ubicacion</p>
-                                    <p>@item.Posicion</p>
-                                    <p>@item.Empresa</p>
-                                    <p>@item.Fechapubli</p>
+                            <form action="" class="form-register2">
+                                <table class="table" id="tableDemo">
+                                    <thead>
+                                        <tr>
+                                            <th>
 
-                                    <br />
-                                    @Html.ActionLink("Modificar ", "Edit", new { id = item.Id })
-                                    @Html.ActionLink(" - Eliminar", "Delete", new { id = item.Id })
-                                    <br />
-                                    @Html.ActionLink("Ver más", "Detailsadmin", new { id = item.Id })
-                                </div>
-                            </div>
-                        }
+                                                <label style="color: black; font-style:italic; text-align: center">Id Empleo</label>
+
+                                            </th>
+                                            <th>
+
+                                                <label style="color: black; font-style:italic; text-align: center">Fecha de publicado</label>
+
+                                            </th>
+                                            <th>
+                                                <label style="color: black; font-style:italic; text-align: center">Logo</label>
+                                            </th>
+                                            <th>
+                                                <label style="color: black; font-style:italic; text-align: center">Posicion</label>
+                                            </th>
+                                            <th>
+                                                <label style="color: black; font-style:italic; text-align: center">Ubicación</label>
+                                            </th>
+
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.Buscarcategoriax(2))
+                                        {
+
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.IdEmpleo)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Fechapubli)
+                                                </td>
+                                                <td>
+                                                    <img width="100" src="@Url.Action("getImage","BEMPLEOS1", new {id = item.Id })" />
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Posicion)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Ubicacion)
+                                                </td>
+
+
+                                                <td>
+                                                    <div class="row">
+                                                        <a class="" title="Detalles" href="@Url.Action("Edit", "BEMPLEOS1", new { id = item.Id})">
+                                                            <i>• Editar</i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="row">
+                                                        <a class="" title="Detalles" href="@Url.Action("Delete", "BEMPLEOS1", new { id = item.Id})">
+                                                            <i>• Eliminar</i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="row">
+                                                        <a class="" title="Detalles" href="@Url.Action("Detailsadmin", "BEMPLEOS1", new { id = item.Id})">
+                                                            <i>• Detalles</i>
+                                                        </a>
+                                                    </div>
+
+                                                </td>
+
+
+                                            </tr>
+
+                                        }
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                        <hr style="width:100%; margin-left:10px;" />
                     </td>
                 </tr>
 
                 <tr>
                     <td>
-                        <p>Hostelería,Turismo</p>
+                        <h3 style="margin-left:10px; font-size:30px;">Construcción e Inmobilaria</h3>
+                        <hr style="width:100%; margin-left:10px;" />
+                        <div class="row" style="width:1000px; margin-left:10px;">
+                            <form action="" class="form-register2">
+                                <table class="table" id="tableDemo">
+                                    <thead>
+                                        <tr>
+                                            <th>
 
-                        @foreach (var item in Model.Buscarcategoriax(2))
-                        {
-                            <div class="itemx">
-                                @*@Html.DisplayFor(model => model.Logo)*@
-                                <img width="360" height="215" src="@Url.Action("getImage2","BEMPLEOS1", new {Id= item.Id })" title="@item.Posicion" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></img>
-                                <div class="itemx-text">
-                                    <h4 class="sizec">@item.Posicion | @item.IdEmpleo</h4>
-                                    <p>@item.Ubicacion</p>
-                                    <p>@item.Posicion</p>
-                                    <p>@item.Empresa</p>
-                                    <p>@item.Fechapubli</p>
+                                                <label style="color: black; font-style:italic; text-align: center">Id Empleo</label>
 
-                                    <br />
-                                    @Html.ActionLink("Modificar ", "Edit", new { id = item.Id })
-                                    @Html.ActionLink(" - Eliminar", "Delete", new { id = item.Id })
-                                    <br />
-                                    @Html.ActionLink("Ver más", "Detailsadmin", new { id = item.Id })
-                                </div>
-                            </div>
-                        }
+                                            </th>
+                                            <th>
+
+                                                <label style="color: black; font-style:italic; text-align: center">Fecha de publicado</label>
+
+                                            </th>
+                                            <th>
+                                                <label style="color: black; font-style:italic; text-align: center">Logo</label>
+                                            </th>
+                                            <th>
+                                                <label style="color: black; font-style:italic; text-align: center">Posicion</label>
+                                            </th>
+                                            <th>
+                                                <label style="color: black; font-style:italic; text-align: center">Ubicación</label>
+                                            </th>
+
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.Buscarcategoriax(3))
+                                        {
+
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.IdEmpleo)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Fechapubli)
+                                                </td>
+                                                <td>
+                                                    <img width="100" src="@Url.Action("getImage","BEMPLEOS1", new {id = item.Id })" />
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Posicion)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Ubicacion)
+                                                </td>
+
+
+                                                <td>
+                                                    <div class="row">
+                                                        <a class="" title="Detalles" href="@Url.Action("Edit", "BEMPLEOS1", new { id = item.Id})">
+                                                            <i>• Editar</i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="row">
+                                                        <a class="" title="Detalles" href="@Url.Action("Delete", "BEMPLEOS1", new { id = item.Id})">
+                                                            <i>• Eliminar</i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="row">
+                                                        <a class="" title="Detalles" href="@Url.Action("Detailsadmin", "BEMPLEOS1", new { id = item.Id})">
+                                                            <i>• Detalles</i>
+                                                        </a>
+                                                    </div>
+
+                                                </td>
+
+
+                                            </tr>
+
+                                        }
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                        <hr style="width:100%; margin-left:10px;" />
                     </td>
                 </tr>
 
                 <tr>
                     <td>
-                        <p>Construcción e inmobiliaria</p>
+                        <h3 style="margin-left:10px; font-size:30px;">Tecnología e Informática</h3>
+                        <hr style="width:100%; margin-left:10px;" />
+                        <div class="row" style="width:1000px; margin-left:10px;">
+                            <form action="" class="form-register2">
+                                <table class="table" id="tableDemo">
+                                    <thead>
+                                        <tr>
+                                            <th>
 
-                        @foreach (var item in Model.Buscarcategoriax(3))
-                        {
-                            <div class="itemx">
-                                @*@Html.DisplayFor(model => model.Logo)*@
-                                <img width="360" height="215" src="@Url.Action("getImage2","BEMPLEOS1", new {Id= item.Id })" title="@item.Posicion" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></img>
-                                <div class="itemx-text">
-                                    <h4 class="sizec">@item.Posicion | @item.IdEmpleo</h4>
-                                    <p>@item.Ubicacion</p>
-                                    <p>@item.Posicion</p>
-                                    <p>@item.Empresa</p>
-                                    <p>@item.Fechapubli</p>
+                                                <label style="color: black; font-style:italic; text-align: center">Id Empleo</label>
 
-                                    <br />
-                                    @Html.ActionLink("Modificar ", "Edit", new { id = item.Id })
-                                    @Html.ActionLink(" - Eliminar", "Delete", new { id = item.Id })
-                                    <br />
-                                    @Html.ActionLink("Ver más", "Detailsadmin", new { id = item.Id })
-                                </div>
-                            </div>
-                        }
+                                            </th>
+                                            <th>
+
+                                                <label style="color: black; font-style:italic; text-align: center">Fecha de publicado</label>
+
+                                            </th>
+                                            <th>
+                                                <label style="color: black; font-style:italic; text-align: center">Logo</label>
+                                            </th>
+                                            <th>
+                                                <label style="color: black; font-style:italic; text-align: center">Posicion</label>
+                                            </th>
+                                            <th>
+                                                <label style="color: black; font-style:italic; text-align: center">Ubicación</label>
+                                            </th>
+
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.Buscarcategoriax(4))
+                                        {
+
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.IdEmpleo)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Fechapubli)
+                                                </td>
+                                                <td>
+                                                    <img width="100" src="@Url.Action("getImage","BEMPLEOS1", new {id = item.Id })" />
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Posicion)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Ubicacion)
+                                                </td>
+
+
+                                                <td>
+                                                    <div class="row">
+                                                        <a class="" title="Detalles" href="@Url.Action("Edit", "BEMPLEOS1", new { id = item.Id})">
+                                                            <i>• Editar</i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="row">
+                                                        <a class="" title="Detalles" href="@Url.Action("Delete", "BEMPLEOS1", new { id = item.Id})">
+                                                            <i>• Eliminar</i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="row">
+                                                        <a class="" title="Detalles" href="@Url.Action("Detailsadmin", "BEMPLEOS1", new { id = item.Id})">
+                                                            <i>• Detalles</i>
+                                                        </a>
+                                                    </div>
+
+                                                </td>
+
+
+                                            </tr>
+
+                                        }
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                        <hr style="width:100%; margin-left:10px;" />
                     </td>
                 </tr>
 
                 <tr>
                     <td>
-                        <p>Tecnología e Informática</p>
+                        <h3 style="margin-left:10px; font-size:30px;">Marketing, publicidad</h3>
+                        <hr style="width:100%; margin-left:10px;" />
+                        <div class="row" style="width:1000px; margin-left:10px;">
+                            <form action="" class="form-register2">
+                                <table class="table" id="tableDemo">
+                                    <thead>
+                                        <tr>
+                                            <th>
 
-                        @foreach (var item in Model.Buscarcategoriax(4))
-                        {
-                            <div class="itemx">
-                                @*@Html.DisplayFor(model => model.Logo)*@
-                                <img width="360" height="215" src="@Url.Action("getImage2","BEMPLEOS1", new {Id= item.Id })" title="@item.Posicion" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></img>
-                                <div class="itemx-text">
-                                    <h4 class="sizec">@item.Posicion | @item.IdEmpleo</h4>
-                                    <p>@item.Ubicacion</p>
-                                    <p>@item.Posicion</p>
-                                    <p>@item.Empresa</p>
-                                    <p>@item.Fechapubli</p>
+                                                <label style="color: black; font-style:italic; text-align: center">Id Empleo</label>
 
-                                    <br />
-                                    @Html.ActionLink("Modificar ", "Edit", new { id = item.Id })
-                                    @Html.ActionLink(" - Eliminar", "Delete", new { id = item.Id })
-                                    <br />
-                                    @Html.ActionLink("Ver más", "Detailsadmin", new { id = item.Id })
-                                </div>
-                            </div>
-                        }
+                                            </th>
+                                            <th>
+
+                                                <label style="color: black; font-style:italic; text-align: center">Fecha de publicado</label>
+
+                                            </th>
+                                            <th>
+                                                <label style="color: black; font-style:italic; text-align: center">Logo</label>
+                                            </th>
+                                            <th>
+                                                <label style="color: black; font-style:italic; text-align: center">Posicion</label>
+                                            </th>
+                                            <th>
+                                                <label style="color: black; font-style:italic; text-align: center">Ubicación</label>
+                                            </th>
+
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.Buscarcategoriax(5))
+                                        {
+
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.IdEmpleo)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Fechapubli)
+                                                </td>
+                                                <td>
+                                                    <img width="100" src="@Url.Action("getImage","BEMPLEOS1", new {id = item.Id })" />
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Posicion)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Ubicacion)
+                                                </td>
+
+
+                                                <td>
+                                                    <div class="row">
+                                                        <a class="" title="Detalles" href="@Url.Action("Edit", "BEMPLEOS1", new { id = item.Id})">
+                                                            <i>• Editar</i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="row">
+                                                        <a class="" title="Detalles" href="@Url.Action("Delete", "BEMPLEOS1", new { id = item.Id})">
+                                                            <i>• Eliminar</i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="row">
+                                                        <a class="" title="Detalles" href="@Url.Action("Detailsadmin", "BEMPLEOS1", new { id = item.Id})">
+                                                            <i>• Detalles</i>
+                                                        </a>
+                                                    </div>
+
+                                                </td>
+
+
+                                            </tr>
+
+                                        }
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                        <hr style="width:100%; margin-left:10px;" />
                     </td>
                 </tr>
 
                 <tr>
                     <td>
-                        <p>Marketing, publicidad</p>
+                        <h3 style="margin-left:10px; font-size:30px;">Telecomunicaciones</h3>
+                        <hr style="width:100%; margin-left:10px;" />
+                        <div class="row" style="width:1000px; margin-left:10px;">
+                            <form action="" class="form-register2">
+                                <table class="table" id="tableDemo">
+                                    <thead>
+                                        <tr>
+                                            <th>
 
-                        @foreach (var item in Model.Buscarcategoriax(5))
-                        {
-                            <div class="itemx">
-                                @*@Html.DisplayFor(model => model.Logo)*@
-                                <img width="360" height="215" src="@Url.Action("getImage2","BEMPLEOS1", new {Id= item.Id })" title="@item.Posicion" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></img>
-                                <div class="itemx-text">
-                                    <h4 class="sizec">@item.Posicion | @item.IdEmpleo</h4>
-                                    <p>@item.Ubicacion</p>
-                                    <p>@item.Posicion</p>
-                                    <p>@item.Empresa</p>
-                                    <p>@item.Fechapubli</p>
+                                                <label style="color: black; font-style:italic; text-align: center">Id Empleo</label>
 
-                                    <br />
-                                    @Html.ActionLink("Modificar ", "Edit", new { id = item.Id })
-                                    @Html.ActionLink(" - Eliminar", "Delete", new { id = item.Id })
-                                    <br />
-                                    @Html.ActionLink("Ver más", "Detailsadmin", new { id = item.Id })
-                                </div>
-                            </div>
-                        }
+                                            </th>
+                                            <th>
+
+                                                <label style="color: black; font-style:italic; text-align: center">Fecha de publicado</label>
+
+                                            </th>
+                                            <th>
+                                                <label style="color: black; font-style:italic; text-align: center">Logo</label>
+                                            </th>
+                                            <th>
+                                                <label style="color: black; font-style:italic; text-align: center">Posicion</label>
+                                            </th>
+                                            <th>
+                                                <label style="color: black; font-style:italic; text-align: center">Ubicación</label>
+                                            </th>
+
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.Buscarcategoriax(6))
+                                        {
+
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.IdEmpleo)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Fechapubli)
+                                                </td>
+                                                <td>
+                                                    <img width="100" src="@Url.Action("getImage","BEMPLEOS1", new {id = item.Id })" />
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Posicion)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Ubicacion)
+                                                </td>
+
+
+                                                <td>
+                                                    <div class="row">
+                                                        <a class="" title="Detalles" href="@Url.Action("Edit", "BEMPLEOS1", new { id = item.Id})">
+                                                            <i>• Editar</i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="row">
+                                                        <a class="" title="Detalles" href="@Url.Action("Delete", "BEMPLEOS1", new { id = item.Id})">
+                                                            <i>• Eliminar</i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="row">
+                                                        <a class="" title="Detalles" href="@Url.Action("Detailsadmin", "BEMPLEOS1", new { id = item.Id})">
+                                                            <i>• Detalles</i>
+                                                        </a>
+                                                    </div>
+
+                                                </td>
+
+
+                                            </tr>
+
+                                        }
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                        <hr style="width:100%; margin-left:10px;" />
                     </td>
                 </tr>
 
                 <tr>
-
                     <td>
-                        <p>Telecomunicaciones</p>
+                        <h3 style="margin-left:10px; font-size:30px;">Atención a Clientes</h3>
+                        <hr style="width:100%; margin-left:10px;" />
+                        <div class="row" style="width:1000px; margin-left:10px;">
+                            <form action="" class="form-register2">
+                                <table class="table" id="tableDemo">
+                                    <thead>
+                                        <tr>
+                                            <th>
 
-                        @foreach (var item in Model.Buscarcategoriax(6))
-                        {
-                            <div class="itemx">
-                                @*@Html.DisplayFor(model => model.Logo)*@
-                                <img width="360" height="215" src="@Url.Action("getImage2","BEMPLEOS1", new {Id= item.Id })" title="@item.Posicion" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></img>
-                                <div class="itemx-text">
-                                    <h4 class="sizec">@item.Posicion | @item.IdEmpleo</h4>
-                                    <p>@item.Ubicacion</p>
-                                    <p>@item.Posicion</p>
-                                    <p>@item.Empresa</p>
-                                    <p>@item.Fechapubli</p>
+                                                <label style="color: black; font-style:italic; text-align: center">Id Empleo</label>
 
-                                    <br />
-                                    @Html.ActionLink("Modificar ", "Edit", new { id = item.Id })
-                                    @Html.ActionLink(" - Eliminar", "Delete", new { id = item.Id })
-                                    <br />
-                                    @Html.ActionLink("Ver más", "Detailsadmin", new { id = item.Id })
-                                </div>
-                            </div>
-                        }
+                                            </th>
+                                            <th>
+
+                                                <label style="color: black; font-style:italic; text-align: center">Fecha de publicado</label>
+
+                                            </th>
+                                            <th>
+                                                <label style="color: black; font-style:italic; text-align: center">Logo</label>
+                                            </th>
+                                            <th>
+                                                <label style="color: black; font-style:italic; text-align: center">Posicion</label>
+                                            </th>
+                                            <th>
+                                                <label style="color: black; font-style:italic; text-align: center">Ubicación</label>
+                                            </th>
+
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.Buscarcategoriax(7))
+                                        {
+
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.IdEmpleo)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Fechapubli)
+                                                </td>
+                                                <td>
+                                                    <img width="100" src="@Url.Action("getImage","BEMPLEOS1", new {id = item.Id })" />
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Posicion)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Ubicacion)
+                                                </td>
+
+
+                                                <td>
+                                                    <div class="row">
+                                                        <a class="" title="Detalles" href="@Url.Action("Edit", "BEMPLEOS1", new { id = item.Id})">
+                                                            <i>• Editar</i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="row">
+                                                        <a class="" title="Detalles" href="@Url.Action("Delete", "BEMPLEOS1", new { id = item.Id})">
+                                                            <i>• Eliminar</i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="row">
+                                                        <a class="" title="Detalles" href="@Url.Action("Detailsadmin", "BEMPLEOS1", new { id = item.Id})">
+                                                            <i>• Detalles</i>
+                                                        </a>
+                                                    </div>
+
+                                                </td>
+
+
+                                            </tr>
+
+                                        }
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                        <hr style="width:100%; margin-left:10px;" />
                     </td>
                 </tr>
 
                 <tr>
-
                     <td>
-                        <p>Atención a clientes</p>
+                        <h3 style="margin-left:10px; font-size:30px;">Derecho y Leyes</h3>
+                        <hr style="width:100%; margin-left:10px;" />
+                        <div class="row" style="width:1000px; margin-left:10px;">
+                            <form action="" class="form-register2">
+                                <table class="table" id="tableDemo">
+                                    <thead>
+                                        <tr>
+                                            <th>
 
-                        @foreach (var item in Model.Buscarcategoriax(7))
-                        {
-                            <div class="itemx">
-                                @*@Html.DisplayFor(model => model.Logo)*@
-                                <img width="360" height="215" src="@Url.Action("getImage2","BEMPLEOS1", new {Id= item.Id })" title="@item.Posicion" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></img>
-                                <div class="itemx-text">
-                                    <h4 class="sizec">@item.Posicion | @item.IdEmpleo</h4>
-                                    <p>@item.Ubicacion</p>
-                                    <p>@item.Posicion</p>
-                                    <p>@item.Empresa</p>
-                                    <p>@item.Fechapubli</p>
+                                                <label style="color: black; font-style:italic; text-align: center">Id Empleo</label>
 
-                                    <br />
-                                    @Html.ActionLink("Modificar ", "Edit", new { id = item.Id })
-                                    @Html.ActionLink(" - Eliminar", "Delete", new { id = item.Id })
-                                    <br />
-                                    @Html.ActionLink("Ver más", "Detailsadmin", new { id = item.Id })
-                                </div>
-                            </div>
-                        }
+                                            </th>
+                                            <th>
+
+                                                <label style="color: black; font-style:italic; text-align: center">Fecha de publicado</label>
+
+                                            </th>
+                                            <th>
+                                                <label style="color: black; font-style:italic; text-align: center">Logo</label>
+                                            </th>
+                                            <th>
+                                                <label style="color: black; font-style:italic; text-align: center">Posicion</label>
+                                            </th>
+                                            <th>
+                                                <label style="color: black; font-style:italic; text-align: center">Ubicación</label>
+                                            </th>
+
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.Buscarcategoriax(8))
+                                        {
+
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.IdEmpleo)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Fechapubli)
+                                                </td>
+                                                <td>
+                                                    <img width="100" src="@Url.Action("getImage","BEMPLEOS1", new {id = item.Id })" />
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Posicion)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Ubicacion)
+                                                </td>
+
+
+                                                <td>
+                                                    <div class="row">
+                                                        <a class="" title="Detalles" href="@Url.Action("Edit", "BEMPLEOS1", new { id = item.Id})">
+                                                            <i>• Editar</i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="row">
+                                                        <a class="" title="Detalles" href="@Url.Action("Delete", "BEMPLEOS1", new { id = item.Id})">
+                                                            <i>• Eliminar</i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="row">
+                                                        <a class="" title="Detalles" href="@Url.Action("Detailsadmin", "BEMPLEOS1", new { id = item.Id})">
+                                                            <i>• Detalles</i>
+                                                        </a>
+                                                    </div>
+
+                                                </td>
+
+
+                                            </tr>
+
+                                        }
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                        <hr style="width:100%; margin-left:10px;" />
                     </td>
-
                 </tr>
 
                 <tr>
-
-
                     <td>
-                        <p>Derecho y leyes</p>
-                        @foreach (var item in Model.Buscarcategoriax(8))
-                        {
-                            <div class="itemx">
-                                @*@Html.DisplayFor(model => model.Logo)*@
-                                <img width="360" height="215" src="@Url.Action("getImage2","BEMPLEOS1", new {Id= item.Id })" title="@item.Posicion" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></img>
-                                <div class="itemx-text">
-                                    <h4 class="sizec">@item.Posicion | @item.IdEmpleo</h4>
-                                    <p>@item.Ubicacion</p>
-                                    <p>@item.Posicion</p>
-                                    <p>@item.Empresa</p>
-                                    <p>@item.Fechapubli</p>
+                        <h3 style="margin-left:10px; font-size:30px;">Ventas</h3>
+                        <hr style="width:100%; margin-left:10px;" />
+                        <div class="row" style="width:1000px; margin-left:10px;">
+                            <form action="" class="form-register2">
+                                <table class="table" id="tableDemo">
+                                    <thead>
+                                        <tr>
+                                            <th>
 
-                                    <br />
-                                    @Html.ActionLink("Modificar ", "Edit", new { id = item.Id })
-                                    @Html.ActionLink(" - Eliminar", "Delete", new { id = item.Id })
-                                    <br />
-                                    @Html.ActionLink("Ver más", "Detailsadmin", new { id = item.Id })
-                                </div>
-                            </div>
-                        }
+                                                <label style="color: black; font-style:italic; text-align: center">Id Empleo</label>
+
+                                            </th>
+                                            <th>
+
+                                                <label style="color: black; font-style:italic; text-align: center">Fecha de publicado</label>
+
+                                            </th>
+                                            <th>
+                                                <label style="color: black; font-style:italic; text-align: center">Logo</label>
+                                            </th>
+                                            <th>
+                                                <label style="color: black; font-style:italic; text-align: center">Posicion</label>
+                                            </th>
+                                            <th>
+                                                <label style="color: black; font-style:italic; text-align: center">Ubicación</label>
+                                            </th>
+
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.Buscarcategoriax(9))
+                                        {
+
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.IdEmpleo)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Fechapubli)
+                                                </td>
+                                                <td>
+                                                    <img width="100" src="@Url.Action("getImage","BEMPLEOS1", new {id = item.Id })" />
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Posicion)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Ubicacion)
+                                                </td>
+
+
+                                                <td>
+                                                    <div class="row">
+                                                        <a class="" title="Detalles" href="@Url.Action("Edit", "BEMPLEOS1", new { id = item.Id})">
+                                                            <i>• Editar</i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="row">
+                                                        <a class="" title="Detalles" href="@Url.Action("Delete", "BEMPLEOS1", new { id = item.Id})">
+                                                            <i>• Eliminar</i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="row">
+                                                        <a class="" title="Detalles" href="@Url.Action("Detailsadmin", "BEMPLEOS1", new { id = item.Id})">
+                                                            <i>• Detalles</i>
+                                                        </a>
+                                                    </div>
+
+                                                </td>
+
+
+                                            </tr>
+
+                                        }
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                        <hr style="width:100%; margin-left:10px;" />
                     </td>
                 </tr>
 
                 <tr>
-
-
                     <td>
-                        <p>Ventas</p>
-                        @foreach (var item in Model.Buscarcategoriax(9))
-                        {
-                            <div class="itemx">
-                                @*@Html.DisplayFor(model => model.Logo)*@
-                                <img width="360" height="215" src="@Url.Action("getImage2","BEMPLEOS1", new {Id= item.Id })" title="@item.Posicion" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></img>
-                                <div class="itemx-text">
-                                    <h4 class="sizec">@item.Posicion | @item.IdEmpleo</h4>
-                                    <p>@item.Ubicacion</p>
-                                    <p>@item.Posicion</p>
-                                    <p>@item.Empresa</p>
-                                    <p>@item.Fechapubli</p>
+                        <h3 style="margin-left:10px; font-size:30px;">Transporte</h3>
+                        <hr style="width:100%; margin-left:10px;" />
+                        <div class="row" style="width:1000px; margin-left:10px;">
+                            <form action="" class="form-register2">
+                                <table class="table" id="tableDemo">
+                                    <thead>
+                                        <tr>
+                                            <th>
 
-                                    <br />
-                                    @Html.ActionLink("Modificar ", "Edit", new { id = item.Id })
-                                    @Html.ActionLink(" - Eliminar", "Delete", new { id = item.Id })
-                                    <br />
-                                    @Html.ActionLink("Ver más", "Detailsadmin", new { id = item.Id })
-                                </div>
-                            </div>
-                        }
+                                                <label style="color: black; font-style:italic; text-align: center">Id Empleo</label>
+
+                                            </th>
+                                            <th>
+
+                                                <label style="color: black; font-style:italic; text-align: center">Fecha de publicado</label>
+
+                                            </th>
+                                            <th>
+                                                <label style="color: black; font-style:italic; text-align: center">Logo</label>
+                                            </th>
+                                            <th>
+                                                <label style="color: black; font-style:italic; text-align: center">Posicion</label>
+                                            </th>
+                                            <th>
+                                                <label style="color: black; font-style:italic; text-align: center">Ubicación</label>
+                                            </th>
+
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @foreach (var item in Model.Buscarcategoriax(10))
+                                        {
+
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.IdEmpleo)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Fechapubli)
+                                                </td>
+                                                <td>
+                                                    <img width="100" src="@Url.Action("getImage","BEMPLEOS1", new {id = item.Id })" />
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Posicion)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Ubicacion)
+                                                </td>
+
+
+                                                <td>
+                                                    <div class="row">
+                                                        <a class="" title="Detalles" href="@Url.Action("Edit", "BEMPLEOS1", new { id = item.Id})">
+                                                            <i>• Editar</i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="row">
+                                                        <a class="" title="Detalles" href="@Url.Action("Delete", "BEMPLEOS1", new { id = item.Id})">
+                                                            <i>• Eliminar</i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="row">
+                                                        <a class="" title="Detalles" href="@Url.Action("Detailsadmin", "BEMPLEOS1", new { id = item.Id})">
+                                                            <i>• Detalles</i>
+                                                        </a>
+                                                    </div>
+
+                                                </td>
+
+
+                                            </tr>
+
+                                        }
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
                     </td>
                 </tr>
-
-                <tr>
-
-
-                    <td>
-                        <p>Transporte</p>
-                        @foreach (var item in Model.Buscarcategoriax(10))
-                        {
-                            <div class="itemx">
-                                @*@Html.DisplayFor(model => model.Logo)*@
-                                <img width="360" height="215" src="@Url.Action("getImage2","BEMPLEOS1", new {Id= item.Id })" title="@item.Posicion" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></img>
-                                <div class="itemx-text">
-                                    <h4 class="sizec">@item.Posicion | @item.IdEmpleo</h4>
-                                    <p>@item.Ubicacion</p>
-                                    <p>@item.Posicion</p>
-                                    <p>@item.Empresa</p>
-                                    <p>@item.Fechapubli</p>
-
-                                    <br />
-                                    @Html.ActionLink("Modificar ", "Edit", new { id = item.Id })
-                                    @Html.ActionLink(" - Eliminar", "Delete", new { id = item.Id })
-                                    <br />
-                                    @Html.ActionLink("Ver más", "Detailsadmin", new { id = item.Id })
-                                </div>
-                            </div>
-                        }
-
-
-                    </td>
-                    </tr>
-
-
-
-
-
-
 
             </table>
-           
-
-           
-
-          
-
-            
-
-            
-
-           
-
-           
-
-
-           
-
-           
-
-  
 
         </div>
 
@@ -411,64 +925,76 @@
 
     <!--Funcionalidad: Anterior y siguiente-->
 
-    <ul class="pagination">
-        @if (Model.PaginaActual == 1)
-        {
-            <li class="disabled">@Html.ActionLink("Anterior", null, new { idcontracheck = Model.idcontracheck, pagina = 1 })</li>
 
-        }
-        else
-        {
-            <li>@Html.ActionLink("Anterior", null, new { idcontracheck = Model.idcontracheck, pagina = Model.PaginaActual - 1 })</li>
-        }
 
-        @if (Model.PaginaActual == cantidadPaginas)
-        {
-            <li class="disabled">@Html.ActionLink("Siguiente", null, new { idcontracheck = Model.idcontracheck, pagina = cantidadPaginas })</li>
+    @section scripts{
 
-        }
-        else
-        {
-            <li>@Html.ActionLink("Siguiente", null, new { idcontracheck = Model.idcontracheck, pagina = Model.PaginaActual + 1 })</li>
-        }
-    </ul>
+        <script>$('.table').DataTable();</script>
 
-    <!--Funcionalidad: Páginas-->
-
-    @{ int Inicial = 1;
-        var radio = 3;
-        var cantidadMaximaDePaginas = radio * 2 + 1;
-        int Final = (cantidadPaginas > cantidadMaximaDePaginas) ? cantidadMaximaDePaginas : cantidadPaginas;
-        if (Model.PaginaActual > radio + 1)
-        {
-            Inicial = Model.PaginaActual - radio;
-            if (cantidadPaginas > Model.PaginaActual + radio)
-            {
-                Final = Model.PaginaActual + radio;
+        <script>
+            function LoadingOverlayShow(id) {
+                $(id).LoadingOverlay("show", {
+                    color: "rgba(255, 255, 255, 0.5)",
+                    image: "/Content/loading.gif",
+                    imageResizeFactor: 0.6,
+                    //imageAnimation: "1.5s fadein",
+                });
             }
-            else
-            {
-                Final = cantidadPaginas;
+            function LoadingOverlayHide(id) {
+                $(id).LoadingOverlay("hide");
             }
-        } }
+            function EliminarUsuario(id) {
+                $.confirm({
+                    title: 'Eliminar Documento',
 
+                    content: '¿Seguro de eliminar este Documento?',
+                    buttons: {
+                        Confirmar: function () {
+                            LoadingOverlayShow(".table");
+                            $.ajax({
+                                url: "/Doc/Eliminar",
+                                type: "post",
+                                data: { idd: id }
+                            }).done(function (response) {
+                                location.reload();
+                            }).fail(function (jqXHR, textStatus, errorThrown) {
+                                alert(textStatus);
+                                location.reload();
+                            });
 
-    @*<ul class="pagination">
-                @{Model.ValoresQueryString["pagina"] = 1; }
-                <li>@Html.ActionLink("Primera", null, Model.ValoresQueryString)</li>
-                @for (int i = Inicial; i <= Final; i++)
-                {
-                    Model.ValoresQueryString["pagina"] = i;
-                    if (i == Model.PaginaActual)
-                    {
-        <li class="active">@Html.ActionLink(i.ToString(), null, Model.ValoresQueryString)</li> }
-                        else
-                        {
-        <li>@Html.ActionLink(i.ToString(), null, Model.ValoresQueryString)</li>}
+                        },
+                        Cancelar: function () {
+
+                        },
                     }
-                @{Model.ValoresQueryString["pagina"] = cantidadPaginas; }
-                <li>@Html.ActionLink("Ultima", null, Model.ValoresQueryString)</li>
-            </ul>*@
+                });
 
-    <a name="end"></a>
+            }
+
+
+        </script>
+        <!--Funcionalidad: Páginas-->
+
+
+        @*<ul class="pagination">
+                    @{Model.ValoresQueryString["pagina"] = 1; }
+                    <li>@Html.ActionLink("Primera", null, Model.ValoresQueryString)</li>
+                    @for (int i = Inicial; i <= Final; i++)
+                    {
+                        Model.ValoresQueryString["pagina"] = i;
+                        if (i == Model.PaginaActual)
+                        {
+            <li class="active">@Html.ActionLink(i.ToString(), null, Model.ValoresQueryString)</li> }
+                            else
+                            {
+            <li>@Html.ActionLink(i.ToString(), null, Model.ValoresQueryString)</li>}
+                        }
+                    @{Model.ValoresQueryString["pagina"] = cantidadPaginas; }
+                    <li>@Html.ActionLink("Ultima", null, Model.ValoresQueryString)</li>
+                </ul>*@
+
+        <a name="end"></a>
+
+
+    }
 </body>
