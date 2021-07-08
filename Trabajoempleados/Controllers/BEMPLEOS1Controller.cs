@@ -479,7 +479,8 @@ namespace Trabajoempleados.Controllers
 
         public ActionResult Verconfiltroadmin()
         {
-            return View(db.EMPLEOS.ToList());
+            combinados model = new combinados();
+            return View(model);
         }
         
 

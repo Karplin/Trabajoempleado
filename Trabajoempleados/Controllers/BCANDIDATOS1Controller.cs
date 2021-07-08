@@ -52,7 +52,7 @@ namespace Trabajoempleados.Controllers
             {
                 db.CANDIDATOS.Add(cANDIDATOS);
                 db.SaveChanges();
-                return RedirectToAction("Ver", "BEMPLEOS1");
+                return RedirectToAction("Login", "Login");
             }
 
             return View(cANDIDATOS);

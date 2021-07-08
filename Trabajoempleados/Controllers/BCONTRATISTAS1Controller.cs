@@ -112,7 +112,7 @@ namespace Trabajoempleados.Controllers
             {
                 db.CONTRATISTAS.Add(cONTRATISTAS);
                 db.SaveChanges();
-                return RedirectToAction("Ver", "BEMPLEOS1");
+                return RedirectToAction("Login", "Login");
             }
 
             return View(cONTRATISTAS);

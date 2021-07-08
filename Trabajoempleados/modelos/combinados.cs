@@ -11,6 +11,7 @@ namespace Trabajoempleados.Models
     {
        private bolsaempleosEntities db = new bolsaempleosEntities();
         public List<EMPLEOS> Empleos {get; set;}
+
         public CATEGORIA Categoria { get; set; }
         public int idcontracheck { get; set; }
         public List<busca_categoria_Result> cat { get; set; }
