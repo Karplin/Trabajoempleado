@@ -2,12 +2,40 @@
 
 @{
     ViewBag.Title = "Verconfiltro";
-    Layout = "~/Views/Shared/_Layout4.cshtml";
+    Layout = "~/Views/Shared/_solofooter.cshtml";
 }
 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top" style="margin-top:-55px;">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img src="http://placehold.it/150x50?text=Logo" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">
+                        Bolsa Empleos
+                    </a>
 
-<p>
-</p>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript: history.go(-1)">Volver.</a>
+                </li>
+
+                <li class="nav-item" style="margin-top:-15px;">
+                    <a class="nav-link">@Html.ActionLink("Cerrar Sesión.", "Login", "Login", new { area = "" }, new { @class = "nav-link" })</a>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
 <form action="" class="form-register2">
     <table class="table" id="tableDemo">
         <thead>
@@ -28,36 +56,36 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Categoria)
                 </th>
-       
+
                 <th></th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model.OrderByDescending(i => i.Id))
             {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Fechapubli)
-                </td>       
-                <td>
-                    <img width="100" src="@Url.Action("getImage","BEMPLEOS1", new {id = item.Id })" />
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Posicion)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Ubicacion)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Categoria)
-                </td>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fechapubli)
+                    </td>
+                    <td>
+                        <img width="100" src="@Url.Action("getImage","BEMPLEOS1", new {id = item.Id })" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Posicion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ubicacion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Categoria)
+                    </td>
 
-                <td>
-                    <a class="btn btn-primary btn-xs" title="Editar" href="@Url.Action("Detailsadmin", "BEMPLEOS1", new { id = item.Id})">
-                        <i class="glyphicon glyphicon-list"></i>
-                    </a>
-                </td>
-            </tr>
+                    <td>
+                        <a class="btn btn-primary btn-xs" title="Editar" href="@Url.Action("Detailsadmin", "BEMPLEOS1", new { id = item.Id})">
+                            <i class="glyphicon glyphicon-list"></i>
+                        </a>
+                    </td>
+                </tr>
             }
         </tbody>
     </table>

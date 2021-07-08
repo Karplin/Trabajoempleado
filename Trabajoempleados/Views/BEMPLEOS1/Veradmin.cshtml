@@ -1,5 +1,4 @@
-﻿
-@model Trabajoempleados.Models.combinados
+﻿@model Trabajoempleados.Models.combinados
 
 
 
@@ -10,7 +9,6 @@
 
 }
 
-<h2>Index</h2>
 
 <link rel="stylesheet" href="~/css/styles.css">
 <link rel="stylesheet" href="~/css/bootstrap-grid.css" />
@@ -20,19 +18,15 @@
 <link rel="stylesheet" href="~/css/reset.min.css" />
 
 <body>
+
+
     <main>
-        <a name="up"></a>
-        <section style="margin-left:5%" class="py-5 text-center container">
-        </section>
 
 
+       
+        <h2 style="margin-left:450px; margin-top:30px;">Buscar por Categoria</h2>
 
-        <hr />
-        <hr />
-
-        <h2>Buscar por Categoria</h2>
-
-        <form action="Indexeadmin" method="post">
+        <form style="margin-left:450px;" action="Indexeadmin" method="post">
 
 
 
@@ -40,7 +34,7 @@
             @Html.ValidationMessageFor(Model => Model.Categoria.Nombre, "", new { @class = "text-danger" })
 
 
-            
+
             <input type="submit" value="Buscar" class="btn btn-success" />
         </form>
 
@@ -49,28 +43,298 @@
 
         <div class="containerx">
 
+            <table>
+                <tr>
+                    <td>
+                        <h3 style="margin-left:10px; font-size:30px;">Educación</h3>
+                        <hr style="width:100%; margin-left:10px;" />
+                        <div class="row" style="width:1000px; margin-left:10px;">
+                            @foreach (var item in Model.Buscarcategoriax(1))
+                            {
 
+                                <div class="col-sm-4" style="margin-left:0px; background-color:aliceblue;">
+                                    @*@Html.DisplayFor(model => model.Logo)*@
+                                    <img width="300" height="180" src="@Url.Action("getImage2","BEMPLEOS1", new {Id= item.Id })" title="@item.Posicion" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></img>
+                                    <div class="itemx-text">
+                                        <h4 class="sizec">@item.Posicion | @item.IdEmpleo</h4>
+                                        <p>@item.Ubicacion</p>
+                                        <p>@item.Posicion</p>
+                                        <p>@item.Empresa</p>
+                                        <br />
+                                        @Html.ActionLink("Modificar ", "Edit", new { id = item.Id })
+                                        @Html.ActionLink(" - Eliminar", "Delete", new { id = item.Id })
+                                        <br />
+                                        @Html.ActionLink("Ver más", "Detailsadmin", new { id = item.Id })
+                                        <p style="margin-left:240px;">@item.Fechapubli</p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </td>
+                </tr>
 
-            @foreach (var item in Model.Empleos)
-            {
-                <div class="itemx">
-                    @*@Html.DisplayFor(model => model.Logo)*@
-                    <img width="360" height="215" src="@Url.Action("getImage2","BEMPLEOS1", new {Id= item.Id })" title="@item.Posicion" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></img>
-                    <div class="itemx-text">
-                        <h4 class="sizec">@item.Posicion | @item.IdEmpleo</h4>
-                        <p>@item.Ubicacion</p>
-                        <p>@item.Posicion</p>
-                        <p>@item.Empresa</p>
-                        <p>@item.Fechapubli</p>
+                <tr>
+                    <td>
+                        <h3 style="margin-left:10px; font-size:30px;">Hostelería, Turismo</h3>
+                        <hr style="width:100%; margin-left:10px;" />
+                        <div class="row" style="width:1000px; margin-left:10px;">
+                            @foreach (var item in Model.Buscarcategoriax(2))
+                            {
 
-                        <br />
-                        @Html.ActionLink("Modificar ", "Edit", new { id = item.Id })
-                        @Html.ActionLink(" - Eliminar", "Delete", new { id = item.Id })
-                        <br />
-                        @Html.ActionLink("Ver más", "Detailsadmin", new { id = item.Id })
-                    </div>
-                </div>
-            }
+                                <div class="col-sm-4" style="margin-left:0px; background-color:aliceblue;">
+                                    @*@Html.DisplayFor(model => model.Logo)*@
+                                    <img width="300" height="180" src="@Url.Action("getImage2","BEMPLEOS1", new {Id= item.Id })" title="@item.Posicion" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></img>
+                                    <div class="itemx-text">
+                                        <h4 class="sizec">@item.Posicion | @item.IdEmpleo</h4>
+                                        <p>@item.Ubicacion</p>
+                                        <p>@item.Posicion</p>
+                                        <p>@item.Empresa</p>
+                                        <br />
+                                        @Html.ActionLink("Modificar ", "Edit", new { id = item.Id })
+                                        @Html.ActionLink(" - Eliminar", "Delete", new { id = item.Id })
+                                        <br />
+                                        @Html.ActionLink("Ver más", "Detailsadmin", new { id = item.Id })
+                                        <p style="margin-left:240px;">@item.Fechapubli</p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h3 style="margin-left:10px; font-size:30px;">Construcción e Inmobilaria</h3>
+                        <hr style="width:100%; margin-left:10px;" />
+                        <div class="row" style="width:1000px; margin-left:10px;">
+                            @foreach (var item in Model.Buscarcategoriax(3))
+                            {
+
+                                <div class="col-sm-4" style="margin-left:0px; background-color:aliceblue;">
+                                    @*@Html.DisplayFor(model => model.Logo)*@
+                                    <img width="300" height="180" src="@Url.Action("getImage2","BEMPLEOS1", new {Id= item.Id })" title="@item.Posicion" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></img>
+                                    <div class="itemx-text">
+                                        <h4 class="sizec">@item.Posicion | @item.IdEmpleo</h4>
+                                        <p>@item.Ubicacion</p>
+                                        <p>@item.Posicion</p>
+                                        <p>@item.Empresa</p>
+                                        <br />
+                                        @Html.ActionLink("Modificar ", "Edit", new { id = item.Id })
+                                        @Html.ActionLink(" - Eliminar", "Delete", new { id = item.Id })
+                                        <br />
+                                        @Html.ActionLink("Ver más", "Detailsadmin", new { id = item.Id })
+                                        <p style="margin-left:240px;">@item.Fechapubli</p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h3 style="margin-left:10px; font-size:30px;">Tecnología e Informática</h3>
+                        <hr style="width:100%; margin-left:10px;" />
+                        <div class="row" style="width:1000px; margin-left:10px;">
+                            @foreach (var item in Model.Buscarcategoriax(4))
+                            {
+
+                                <div class="col-sm-4" style="margin-left:0px; background-color:aliceblue;">
+                                    @*@Html.DisplayFor(model => model.Logo)*@
+                                    <img width="300" height="180" src="@Url.Action("getImage2","BEMPLEOS1", new {Id= item.Id })" title="@item.Posicion" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></img>
+                                    <div class="itemx-text">
+                                        <h4 class="sizec">@item.Posicion | @item.IdEmpleo</h4>
+                                        <p>@item.Ubicacion</p>
+                                        <p>@item.Posicion</p>
+                                        <p>@item.Empresa</p>
+                                        <br />
+                                        @Html.ActionLink("Modificar ", "Edit", new { id = item.Id })
+                                        @Html.ActionLink(" - Eliminar", "Delete", new { id = item.Id })
+                                        <br />
+                                        @Html.ActionLink("Ver más", "Detailsadmin", new { id = item.Id })
+                                        <p style="margin-left:240px;">@item.Fechapubli</p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h3 style="margin-left:10px; font-size:30px;">Marketing, publicidad</h3>
+                        <hr style="width:100%; margin-left:10px;" />
+                        <div class="row" style="width:1000px; margin-left:10px;">
+                            @foreach (var item in Model.Buscarcategoriax(5))
+                            {
+
+                                <div class="col-sm-4" style="margin-left:0px; background-color:aliceblue;">
+                                    @*@Html.DisplayFor(model => model.Logo)*@
+                                    <img width="300" height="180" src="@Url.Action("getImage2","BEMPLEOS1", new {Id= item.Id })" title="@item.Posicion" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></img>
+                                    <div class="itemx-text">
+                                        <h4 class="sizec">@item.Posicion | @item.IdEmpleo</h4>
+                                        <p>@item.Ubicacion</p>
+                                        <p>@item.Posicion</p>
+                                        <p>@item.Empresa</p>
+                                        <br />
+                                        @Html.ActionLink("Modificar ", "Edit", new { id = item.Id })
+                                        @Html.ActionLink(" - Eliminar", "Delete", new { id = item.Id })
+                                        <br />
+                                        @Html.ActionLink("Ver más", "Detailsadmin", new { id = item.Id })
+                                        <p style="margin-left:240px;">@item.Fechapubli</p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h3 style="margin-left:10px; font-size:30px;">Telecomunicaciones</h3>
+                        <hr style="width:100%; margin-left:10px;" />
+                        <div class="row" style="width:1000px; margin-left:10px;">
+                            @foreach (var item in Model.Buscarcategoriax(6))
+                            {
+
+                                <div class="col-sm-4" style="margin-left:0px; background-color:aliceblue;">
+                                    @*@Html.DisplayFor(model => model.Logo)*@
+                                    <img width="300" height="180" src="@Url.Action("getImage2","BEMPLEOS1", new {Id= item.Id })" title="@item.Posicion" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></img>
+                                    <div class="itemx-text">
+                                        <h4 class="sizec">@item.Posicion | @item.IdEmpleo</h4>
+                                        <p>@item.Ubicacion</p>
+                                        <p>@item.Posicion</p>
+                                        <p>@item.Empresa</p>
+                                        <br />
+                                        @Html.ActionLink("Modificar ", "Edit", new { id = item.Id })
+                                        @Html.ActionLink(" - Eliminar", "Delete", new { id = item.Id })
+                                        <br />
+                                        @Html.ActionLink("Ver más", "Detailsadmin", new { id = item.Id })
+                                        <p style="margin-left:240px;">@item.Fechapubli</p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h3 style="margin-left:10px; font-size:30px;">Atención a Clientes</h3>
+                        <hr style="width:100%; margin-left:10px;" />
+                        <div class="row" style="width:1000px; margin-left:10px;">
+                            @foreach (var item in Model.Buscarcategoriax(7))
+                            {
+
+                                <div class="col-sm-4" style="margin-left:0px; background-color:aliceblue;">
+                                    @*@Html.DisplayFor(model => model.Logo)*@
+                                    <img width="300" height="180" src="@Url.Action("getImage2","BEMPLEOS1", new {Id= item.Id })" title="@item.Posicion" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></img>
+                                    <div class="itemx-text">
+                                        <h4 class="sizec">@item.Posicion | @item.IdEmpleo</h4>
+                                        <p>@item.Ubicacion</p>
+                                        <p>@item.Posicion</p>
+                                        <p>@item.Empresa</p>
+                                        <br />
+                                        @Html.ActionLink("Modificar ", "Edit", new { id = item.Id })
+                                        @Html.ActionLink(" - Eliminar", "Delete", new { id = item.Id })
+                                        <br />
+                                        @Html.ActionLink("Ver más", "Detailsadmin", new { id = item.Id })
+                                        <p style="margin-left:240px;">@item.Fechapubli</p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h3 style="margin-left:10px; font-size:30px;">Derecho y Leyes</h3>
+                        <hr style="width:100%; margin-left:10px;" />
+                        <div class="row" style="width:1000px; margin-left:10px;">
+                            @foreach (var item in Model.Buscarcategoriax(8))
+                            {
+
+                                <div class="col-sm-4" style="margin-left:0px; background-color:aliceblue;">
+                                    @*@Html.DisplayFor(model => model.Logo)*@
+                                    <img width="300" height="180" src="@Url.Action("getImage2","BEMPLEOS1", new {Id= item.Id })" title="@item.Posicion" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></img>
+                                    <div class="itemx-text">
+                                        <h4 class="sizec">@item.Posicion | @item.IdEmpleo</h4>
+                                        <p>@item.Ubicacion</p>
+                                        <p>@item.Posicion</p>
+                                        <p>@item.Empresa</p>
+                                        <br />
+                                        @Html.ActionLink("Modificar ", "Edit", new { id = item.Id })
+                                        @Html.ActionLink(" - Eliminar", "Delete", new { id = item.Id })
+                                        <br />
+                                        @Html.ActionLink("Ver más", "Detailsadmin", new { id = item.Id })
+                                        <p style="margin-left:240px;">@item.Fechapubli</p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h3 style="margin-left:10px; font-size:30px;">Ventas</h3>
+                        <hr style="width:100%; margin-left:10px;" />
+                        <div class="row" style="width:1000px; margin-left:10px;">
+                            @foreach (var item in Model.Buscarcategoriax(9))
+                            {
+
+                                <div class="col-sm-4" style="margin-left:0px; background-color:aliceblue;">
+                                    @*@Html.DisplayFor(model => model.Logo)*@
+                                    <img width="300" height="180" src="@Url.Action("getImage2","BEMPLEOS1", new {Id= item.Id })" title="@item.Posicion" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></img>
+                                    <div class="itemx-text">
+                                        <h4 class="sizec">@item.Posicion | @item.IdEmpleo</h4>
+                                        <p>@item.Ubicacion</p>
+                                        <p>@item.Posicion</p>
+                                        <p>@item.Empresa</p>
+                                        <br />
+                                        @Html.ActionLink("Modificar ", "Edit", new { id = item.Id })
+                                        @Html.ActionLink(" - Eliminar", "Delete", new { id = item.Id })
+                                        <br />
+                                        @Html.ActionLink("Ver más", "Detailsadmin", new { id = item.Id })
+                                        <p style="margin-left:240px;">@item.Fechapubli</p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h3 style="margin-left:10px; font-size:30px;">Transporte</h3>
+                        <hr style="width:100%; margin-left:10px;" />
+                        <div class="row" style="width:1000px; margin-left:10px;">
+                            @foreach (var item in Model.Buscarcategoriax(10))
+                            {
+
+                                <div class="col-sm-4" style="margin-left:0px; background-color:aliceblue;">
+                                    @*@Html.DisplayFor(model => model.Logo)*@
+                                    <img width="300" height="180" src="@Url.Action("getImage2","BEMPLEOS1", new {Id= item.Id })" title="@item.Posicion" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></img>
+                                    <div class="itemx-text">
+                                        <h4 class="sizec">@item.Posicion | @item.IdEmpleo</h4>
+                                        <p>@item.Ubicacion</p>
+                                        <p>@item.Posicion</p>
+                                        <p>@item.Empresa</p>
+                                        <br />
+                                        @Html.ActionLink("Modificar ", "Edit", new { id = item.Id })
+                                        @Html.ActionLink(" - Eliminar", "Delete", new { id = item.Id })
+                                        <br />
+                                        @Html.ActionLink("Ver más", "Detailsadmin", new { id = item.Id })
+                                        <p style="margin-left:240px;">@item.Fechapubli</p>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </td>
+                </tr>
+
+            </table>
 
         </div>
 
@@ -99,25 +363,25 @@
 
     <!--Funcionalidad: Anterior y siguiente-->
 
-    <ul class="pagination">
+    <ul style="width:100px;" >
         @if (Model.PaginaActual == 1)
         {
-            <li class="disabled">@Html.ActionLink("Anterior", null, new { idcontracheck = Model.idcontracheck, pagina = 1 })</li>
+            <li class="disabled">@Html.ActionLink("Anterior   ", null, new { idcontracheck = Model.idcontracheck, pagina = 1 }, htmlAttributes: new { @class = "list-group-item list-group-item-action list-group-item-dark" })</li>
 
         }
         else
         {
-            <li>@Html.ActionLink("Anterior", null, new { idcontracheck = Model.idcontracheck, pagina = Model.PaginaActual - 1 })</li>
+            <li>@Html.ActionLink("Anterior   ", null, new { idcontracheck = Model.idcontracheck, pagina = Model.PaginaActual - 1 }, htmlAttributes: new { @class = "list-group-item list-group-item-action list-group-item-dark" })</li>
         }
 
         @if (Model.PaginaActual == cantidadPaginas)
         {
-            <li class="disabled">@Html.ActionLink("Siguiente", null, new { idcontracheck = Model.idcontracheck, pagina = cantidadPaginas })</li>
+            <li class="disabled">@Html.ActionLink("Siguiente", null,  new { idcontracheck = Model.idcontracheck, pagina = cantidadPaginas } , htmlAttributes: new { @class = "list-group-item list-group-item-action list-group-item-dark" })</li>
 
         }
         else
         {
-            <li>@Html.ActionLink("Siguiente", null, new { idcontracheck = Model.idcontracheck, pagina = Model.PaginaActual + 1 })</li>
+            <li>@Html.ActionLink("Siguiente", null, new { idcontracheck = Model.idcontracheck, pagina = Model.PaginaActual + 1 }, htmlAttributes: new { @class = "list-group-item list-group-item-action list-group-item-dark" })</li>
         }
     </ul>
 
@@ -159,4 +423,7 @@
             </ul>*@
 
     <a name="end"></a>
+
+
+
 </body>

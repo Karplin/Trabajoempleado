@@ -34,6 +34,9 @@
     </FunctionImport>
     <EntitySet Name="CONTRATISTAS" EntityType="bolsaempleosModel.CONTRATISTAS" />
     <EntitySet Name="EMPLEOS" EntityType="bolsaempleosModel.EMPLEOS" />
+    <FunctionImport Name="busca_categoria2" ReturnType="Collection(bolsaempleosModel.busca_categoria2_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="CATEGORIA">
     <Key>
@@ -85,4 +88,13 @@
     <Property Name="Fechapubli" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
     <Property Name="Urlx" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
   </EntityType>
+  <ComplexType Name="busca_categoria2_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="IdEmpleo" Nullable="true" MaxLength="30" />
+    <Property Type="Binary" Name="Logo" Nullable="true" />
+    <Property Type="String" Name="Posicion" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Ubicacion" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Empresa" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="Fechapubli" Nullable="true" MaxLength="30" />
+  </ComplexType>
 </Schema>

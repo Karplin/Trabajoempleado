@@ -2,10 +2,9 @@
 
 @{
     ViewBag.Title = "Indexe";
+    Layout = "~/Views/Shared/_solofooter.cshtml";
 }
 
-
-<h2>Index</h2>
 
 <link rel="stylesheet" href="~/css/styles.css">
 <link rel="stylesheet" href="~/css/bootstrap-grid.css" />
@@ -15,13 +14,42 @@
 <link rel="stylesheet" href="~/css/reset.min.css" />
 
 <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="http://placehold.it/150x50?text=Logo" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">
+                            Bolsa Empleos
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript: history.go(-1)">Volver.</a>
+                    </li>
+
+                    <li class="nav-item" style="margin-top:-15px;">
+                        <a class="nav-link">@Html.ActionLink("Cerrar Sesión.", "Login", "Login", new { area = "" }, new { @class = "nav-link" })</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <main>
         <a name="up"></a>
         <section style="margin-left:5%" class="py-5 text-center container">
         </section>
 
-        <hr />
-        <hr />
 
         <div class="containerx">
 
@@ -35,10 +63,11 @@
                         <p>@item.Ubicacion</p>
                         <p>@item.Posicion</p>
                         <p>@item.Empresa</p>
-                        <p>@item.Fechapubli</p>
+
 
                         <br />
                         @Html.ActionLink("Ver más", "Details", new { id = item.Id })
+                        <p style="margin-left:240px;">@item.Fechapubli</p>
                     </div>
                 </div>
             }
@@ -51,6 +80,8 @@
 
     <a name="end"></a>
 </body>
+
+
 
 
 

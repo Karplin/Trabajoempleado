@@ -1,0 +1,113 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="~/Content/Styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <link href="~/Content/themes/base/jquery-ui.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <link href="~/Content/footerx.css" rel="stylesheet" />
+    <link href="~/Content/fondo.css" rel="stylesheet" />
+    @RenderSection("styles", required: false)
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top" >
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="http://placehold.it/150x50?text=Logo" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">
+                            Bolsa Empleos
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript: history.go(-1)">Volver.</a>
+                    </li>
+
+                    <li class="nav-item" style="margin-top:-15px;">
+                        <a class="nav-link">@Html.ActionLink("Cerrar Sesión.", "Login", "Login", new { area = "" }, new { @class = "nav-link" })</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div class="container body-content">
+        @RenderBody()
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+
+    @Scripts.Render("~/Scripts/jquery-ui-1.12.1.min.js")
+    <script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.6/dist/loadingoverlay.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+
+
+</html>
+<footer class="site-footer" style="margin-top:400px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <h6>Acerca de</h6>
+                <p class="text-justify">EmpleosForEveryone es una página dedicada a los interesados de enterarse de las últimas vacantes disponibles del área laboral tanto para empresas al poder publicar sus empleos como para posibles postulantes que puedan ver la información en línea.</p>
+            </div>
+
+            <div class="col-sm-12 col-md-3">
+                <h6>Disclaimer</h6>
+                <p class="text-justify">No somos propietarios ni proveedores de ninguno de los empleos publicados o presentados en la página, simplemente hacemos difusión de ellos, estos son propiedad de sus respectivos publicadores.</p>
+            </div>
+
+            <div class="col-xs-6 col-md-3">
+                <h6>Navegación Rápida</h6>
+                <ul class="footer-links">
+                    <li><a href="#up">Principio de la página.</a></li>
+                    <li><a href="javascript: history.go(-1)">Volver.</a></li>
+                    <li><a>@Html.ActionLink("Cerrar Sesión.", "Login", "Login", new { area = "" }, null)</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+                <p class="copyright-text">
+                    Copyright &copy; 2021 Todos los derechos reservados Sky Software.
+
+
+                </p>
+
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <ul class="social-icons">
+                    <li><a class="dribbble"><img src="~/img/x.png" style="width:35px; height:35px" class="avatar" alt="Avatar Image"></a></li>
+                    <li><a class="dribbble"><img src="~/img/boleto.png" style="width:35px; height:35px" class="avatar" alt="Avatar Image"></a></li>
+                    <li><a class="dribbble"><img src="~/img/cine.png" style="width:35px; height:35px" class="avatar" alt="Avatar Image"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>

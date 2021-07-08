@@ -41,5 +41,14 @@ namespace Trabajoempleados.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<busca_categoria_Result>("busca_categoria", nombreParameter);
         }
+    
+        public virtual ObjectResult<busca_categoria2_Result> busca_categoria2(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<busca_categoria2_Result>("busca_categoria2", idParameter);
+        }
     }
 }

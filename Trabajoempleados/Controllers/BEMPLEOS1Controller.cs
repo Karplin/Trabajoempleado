@@ -290,6 +290,8 @@ namespace Trabajoempleados.Controllers
         // GET: BEMPLEOS1/Edit/5
         public ActionResult Edit(int? id)
         {
+            ViewData["items"] = ListarCategoria();
+            ViewData["itemsx"] = ListarTipo();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -309,6 +311,8 @@ namespace Trabajoempleados.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,IdEmpleo,IdEmpresa,Empresa,Tipo,Logo,Posicion,Ubicacion,Categoria,Descripcion,caplicar,Email,Fechapubli,Urlx")] EMPLEOS eMPLEOS)
         {
+            ViewData["items"] = ListarCategoria();
+            ViewData["itemsx"] = ListarTipo();
             byte[] imagenactual = null;
 
             HttpPostedFileBase FileBase = Request.Files[0];
@@ -460,6 +464,7 @@ namespace Trabajoempleados.Controllers
             return View(model);
         }
 
+       
 
         [HttpPost]
         public ActionResult Indexeadmin(string nombre)
@@ -617,6 +622,47 @@ namespace Trabajoempleados.Controllers
                 return View(cANDIDATOS);
             }
             return View(cANDIDATOS);
+        }
+
+
+
+
+
+
+        public ActionResult Veradminx(int idcontracheck = 1, int pagina = 1)
+        {
+            ViewData["items"] = ListarCategoria();
+
+            combinados model = new combinados
+            {
+                Empleos = db.EMPLEOS.ToList(),
+                Categoria = new CATEGORIA()
+            };
+            if (idcontracheck == 1)
+            {
+                model.idcontracheck = model.idcontracheck;
+            }
+            else
+            {
+                model.idcontracheck = idcontracheck;
+            }
+            var cantidadRegistrosPorPagina = 9; // parámetro
+            using (var db = new bolsaempleosEntities())
+            {
+
+                var item = db.EMPLEOS.OrderByDescending(x => x.Id)
+                    .Skip((pagina - 1) * cantidadRegistrosPorPagina)
+                    .Take(cantidadRegistrosPorPagina).ToList();
+                var totalDeRegistros = db.EMPLEOS.Count();
+
+
+                model.Empleos = item;
+                model.PaginaActual = pagina;
+                model.TotalDeRegistros = totalDeRegistros;
+                model.RegistrosPorPagina = cantidadRegistrosPorPagina;
+            }
+
+            return View(model);
         }
 
     }

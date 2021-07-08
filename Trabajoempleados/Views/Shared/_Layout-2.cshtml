@@ -18,33 +18,43 @@
     <link href="~/Content/fondo.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top" style="margin-top:-55px;">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <p style="margin-top:15px; color:dimgrey"> Bolsa empleos</p>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>@Html.ActionLink("Empleos", "Ver", "BEMPLEOS1", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("Refinar Búsqueda", "Verconfiltro", "BEMPLEOS1", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("Cerrar Sesión", "Login", "Login", new { area = "" }, null)</li>
-                    <li style="background-color: deepskyblue"></li>
+            <a class="navbar-brand" href="#">
+                <img src="http://placehold.it/150x50?text=Logo" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">
+                            Bolsa Empleos
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript: history.go(-1)">Volver.</a>
+                    </li>
+
+                    <li class="nav-item" style="margin-top:-15px; margin-right:800px;">
+                        <a class="nav-link">@Html.ActionLink("Cerrar Sesión.", "Login", "Login", new { area = "" }, new { @class = "nav-link" })</a>
+                    </li>
+
                 </ul>
             </div>
         </div>
-    </div>
+    </nav>
+
     <div class="container body-content">
         @RenderBody()
-    
+
     </div>
 
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+
     @Scripts.Render("~/Scripts/jquery-ui.js")
     @RenderSection("scripts", required: false)
 </body>

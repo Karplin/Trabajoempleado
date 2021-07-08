@@ -9,122 +9,16 @@
     padding-right: 15px;
 }
 
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
     max-width: 280px;
-}
-
-.center-page /*login*/ {
-    width: 300px;
-    height: 300px;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-}
-
-
-.center-pageCreate /*login*/ {
-    width: 300px;
-    height: 515px;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 46px;
-    right: 0;
-    margin: auto;
-}
-
-
-.center-pageCreate2 /*createCandidatos*/ {
-    width: 300px;
-    height: 515px;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 46px;
-    right: 0;
-    margin: auto;
-    margin-top: 72px;
-}
-
-
-.center-pageCreateEmpleos /*createEmpleos*/ {
-    width: 300px;
-    height: 515px;
-    position: absolute;
-    top: -157px;
-    bottom: 0;
-    left: 46px;
-    right: 0;
-    margin: auto;
-}
-
-.center-pageE /*Empleados*/ {
-    width: 300px;
-    height: 515px;
-    position: absolute;
-    top: 130px;
-    bottom: 0;
-    left: 172px;
-    right: 0;
-    margin: auto;
-}
-
-.fichas {
-    margin-top: 11px;
-}
-
-.center-label /*CreateAdmin*/ {
-    padding-top: 17px;
-    margin-bottom: 24px;
-    text-align: right;
-    top: -36px;
-    left: 59px;
-    margin-bottom: 0;
-    text-align: right;
-}
-
-
-
-.margin-textbox /*createAdmin*/ {
-    margin-bottom: 17px;
-}
-
-.text-top /*login*/ {
-    margin-top: 20px;
-}
-
-.fotter-butom /*layout1*/ {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    left: 100px;
-}
-
-.title-align /*login*/ {
-    padding: 25px;
-    padding-top: 0px;
-}
-
-#backgrn /*login*/ {
-    background-color: black;
-}
-
-.fnacimientolabel {
-    padding: 0px;
-    margin-left: 16px;
-    text-align: left;
-}
-
-
-.imagenes {
-    width: 26%;
-    position: absolute;
-    margin-top: 80px;
-    margin-left: -88px;
 }

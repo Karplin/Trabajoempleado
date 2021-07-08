@@ -2,15 +2,22 @@
 
 @{
     ViewBag.Title = "Edit";
-    Layout = "~/Views/Shared/_Layout4.cshtml";
+    Layout = "~/Views/Shared/_categoria.cshtml";
 }
 
-
+<link rel="stylesheet" href="~/css/styles.css">
+<link rel="stylesheet" href="~/css/bootstrap-grid.css" />
+<link rel="stylesheet" href="~/css/bootstrap-grid.min.css" />
+<link rel="stylesheet" href="~/css/header-1.css" />
+<link rel="stylesheet" href="~/css/style.css" />
+<link rel="stylesheet" href="~/css/reset.min.css" />
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+    <br />
+    <br />
+   
     <div class="form-horizontal">
         <h4>CATEGORIA</h4>
         <hr />

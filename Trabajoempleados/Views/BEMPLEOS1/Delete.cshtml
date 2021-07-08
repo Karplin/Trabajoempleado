@@ -1,121 +1,111 @@
 ﻿@model Trabajoempleados.Models.EMPLEOS
 
+<link href="~/Content/detalles.css" rel="stylesheet" />
 @{
     ViewBag.Title = "Delete";
-    Layout = "~/Views/Shared/_Layout4.cshtml";
+    Layout = "~/Views/Shared/_Layout4-2.cshtml";
 }
 
-<h2>Delete</h2>
+<br />
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+        <div class="row container d-flex justify-content-center">
+            <div class="col-xl-6 col-md-12" style="width: 800px; position:center">
+                <div class="card user-card-full">
+                    <div class="row m-l-0 m-r-0">
+                        <div class="col-sm-4 bg-c-lite-green user-profile">
+                            <div class="card-block text-center text-white">
+                                <div class="m-b-25"> <img style="width: 180px;" src="@Url.Action("getImage","BEMPLEOS1", new {id=Model.Id})" class="img-radius" alt="User-Profile-Image"> </div>
 
-<h3>¿Estás seguro que deseas eliminar este empleo?</h3>
-<div>
 
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayName("ID Empleo")
-        </dt>
+                                <h5 class="f-w-600">Empresa</h5>
+                                <h4> @Html.DisplayFor(model => model.Empresa)</h4>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="card-block">
+                                <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Información</h6>
+                                <div class="row">
 
-        <dd>
-            @Html.DisplayFor(model => model.IdEmpleo)
-        </dd>
+                                    <div class="col-sm-4">
+                                        <p class="m-b-10 f-w-600">Codigo de Empleo</p>
+                                        @Html.DisplayFor(model => model.IdEmpleo, new { htmlAttributes = new { @class = "text-muted f-w-400", @style = "color:#FFFFF" } })
+                                    </div>
 
-        <dt>
-            @Html.DisplayName("ID Empresa")
-        </dt>
+                                    <div class="col-sm-4">
+                                        <p class="m-b-10 f-w-600">Tipo de Jornada</p>
+                                        @Html.DisplayFor(model => model.Tipo)
+                                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.IdEmpresa)
-        </dd>
 
-        <dt>
-            @Html.DisplayName("Empresa")
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Empresa)
-        </dd>
+                                    <div class="col-sm-4">
+                                        <p class="m-b-10 f-w-600">Posición</p>
+                                        @Html.DisplayFor(model => model.Posicion)
+                                    </div>
 
-        <dt>
-            @Html.DisplayName("Tipo")
-        </dt>
+                                    <h8 style="color:#ffffff">_________________</h8>
 
-        <dd>
-            @Html.DisplayFor(model => model.Tipo)
-        </dd>
+                                    <div class="col-sm-4">
+                                        <p class="m-b-10 f-w-600">Ubicación</p>
+                                        @Html.DisplayFor(model => model.Ubicacion)
+                                    </div>
 
-        <dt>
-            @Html.DisplayName("Logo")
-        </dt>
+                                    <div class="col-sm-4">
+                                        <p class="m-b-10 f-w-600">URL</p>
+                                        @Html.DisplayFor(model => model.Urlx)
+                                    </div>
 
-        <dd>
-            @*@Html.DisplayFor(model => model.Logo)*@
-            <img width="100" src="@Url.Action("getImage","BEMPLEOS1", new {id=Model.Id })" />
-        </dd>
+                                    <div class="col-sm-4">
+                                        <p class="m-b-10 f-w-600">Categoría</p>
+                                        @Html.DisplayFor(model => model.Categoria)
+                                    </div>
+                                    <h8 style="color:#ffffff">_________________</h8>
+                                    <div class="col-sm-4">
+                                        <p class="m-b-10 f-w-600">¿Cómo Aplicar?</p>
+                                        @Html.DisplayFor(model => model.caplicar)
+                                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Posicion)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Posicion)
-        </dd>
+                                    <div class="col-sm-4">
+                                        <p class="m-b-10 f-w-600">Email</p>
+                                        @Html.DisplayFor(model => model.Email)
+                                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Ubicacion)
-        </dt>
+                                    <div class="col-sm-4">
+                                        <p class="m-b-10 f-w-600">Fecha de Publicación</p>
+                                        @Html.DisplayFor(model => model.Fechapubli)
+                                    </div>
+                                    <h8 style="color:#ffffff">_________________</h8>
+                                    <div class="col-sm-4">
+                                        <p class="m-b-10 f-w-600">Descripción</p>
+                                        @Html.TextAreaFor(model => model.Descripcion, new { disabled = "true", cols = "40", rows = "5", style = "resize: both;" })
+                                    </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Ubicacion)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Categoria)
-        </dt>
+                                </div>
+                                <ul class="social-link list-unstyled m-t-40 m-b-10">
+                                    <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="facebook" data-abc="true"><i class="mdi mdi-facebook feather icon-facebook facebook" aria-hidden="true"></i></a></li>
+                                    <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="twitter" data-abc="true"><i class="mdi mdi-twitter feather icon-twitter twitter" aria-hidden="true"></i></a></li>
+                                    <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="instagram" data-abc="true"><i class="mdi mdi-instagram feather icon-instagram instagram" aria-hidden="true"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-        <dd>
-            @Html.DisplayFor(model => model.Categoria)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Descripcion)
-        </dd>
-
-        <dt>
-            @Html.DisplayName("¿Cómo aplicar?")
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.caplicar)
-        </dd>
-
-        <dt>
-            @Html.DisplayName("Correo Electrónico")
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayName("Fecha")
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Fechapubli)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
             <input type="submit" value="Borrar" class="btn btn-default" /> |
         </div>
     }
-</div>
+
